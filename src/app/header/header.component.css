@@ -1,0 +1,13 @@
+nav.navbar.navbar-expand-lg {
+    background: rgb(250, 0, 80);
+    color: white;
+}
+
+nav.navbar.navbar-expand-lg a {
+    color: white;
+    font-weight: 600;
+}
+
+div#navbarSupportedContent {
+    justify-content: end;
+}

@@ -1,0 +1,15 @@
+.helppage {
+    background-color: #f7f7f7 !important;
+}
+
+.helpyou {
+    display: flex;
+    padding: 2px 31px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+button.btn.btn-danger {
+    height: 40px;
+    margin-top: 20px;
+}
