@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CreateShipmentComponent } from './create-shipment.component';
 
 describe('CreateShipmentComponent', () => {
@@ -8,7 +8,10 @@ describe('CreateShipmentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateShipmentComponent ]
+      declarations: [ CreateShipmentComponent ],
+       schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ],
     })
     .compileComponents();
   });
