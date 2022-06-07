@@ -5,3 +5,14 @@
   .mat-form-field {
     margin-top: 16px;
   }
+  .float-right {
+    float: right;
+  }
+
+  .myshipment select.form-select {
+    width: 170px;
+}
+
+input.form-control.me-2 {
+  width: 220px;
+}
