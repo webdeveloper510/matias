@@ -28,6 +28,41 @@
 .row.text-center {
     background-color: #f3f3f3;
     border-radius: 6px;
-    padding: 14px;
+    padding: 36px 14px;
     margin: 30px;
+}
+.float-right {
+    float: right;
+}
+
+.clint p {
+    margin: 0px;
+}
+
+.clint {
+    background-color: white;
+    padding: 13px 15px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+.card a {
+    color: red;
+    font-size: 17px;
+    text-decoration: none;
+}
+i.fa.fa-check-circle {
+    font-size: 28px;
+    color: #198754;
+    vertical-align: bottom;
+}
+
+.actives {
+    font-size: 22px;
+    line-height: 26px;
+}
+
+i.fa.fa-copy {
+    font-size: 24px;
+    padding: 10px;
+    color: #fa0050;
 }

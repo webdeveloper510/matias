@@ -173,7 +173,7 @@
               <p>Pick up Gotoshop order number: 5666</p>
           </div>
           <div class="col-6">
-            <p>Withdrawal</p>
+            <p>Delivery</p>
             <h3>Av. Cristobal Colon 6560, Local 8, Las Condes <br/>
               Feroz Chocolates - Colon Store</h3>
               <small>Who do we ask about at the retreat?</small>
@@ -199,7 +199,7 @@
         </div>
          <div class="row">
            <div class="col-6">
-             <button class="btn btn-sm btn-danger form-control" type="button">See proof of delivery</button>
+             <button class="btn btn-sm btn-danger form-control" type="button" data-bs-toggle="modal" data-bs-target="#proof">See proof of delivery</button>
            </div>
            <div class="col-6">
             <button class="btn btn-sm btn-outline-danger form-control" type="button">Ask for help</button>
@@ -209,6 +209,25 @@
    </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="proof" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Proof of Delivery</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <img src="./../../assets/proof.png" class="img-fluid"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Discharge</button>
+      </div>
+    </div>
+  </div>
+</div>
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

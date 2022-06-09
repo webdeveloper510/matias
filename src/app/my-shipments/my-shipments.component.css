@@ -16,3 +16,10 @@
 input.form-control.me-2 {
   width: 220px;
 }
+.card {
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 6px;
+}
+
+p {
+  margin: 0 0 3px;
+}

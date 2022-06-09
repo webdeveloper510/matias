@@ -5,12 +5,57 @@
     <div class=" row text-center">
         <div class="col"></div>
         <div class="col-md-10">
-            <h4>Your credentials are active. For security, we will not show your data. If you want to see your credentials, you have to renew them.</h4>
-            <button class="btn btn-success" type="button">Renovar Credenciales</button>
+            <h4 class="actives">Your credentials are active. For security, we will not show your data. If you want to see your credentials, you have to renew them.</h4>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Credenciales" type="button">Renovar Credenciales</button>
         </div>
         <div class="col"></div>
     </div>
+    <div class="card" style=" background: #f3f3f3; display: none;">
+        <div class="card-body">
+            <div class="float-right">
+                <a href="" ><i class="fa fa-download"></i> Discharge</a>
+            </div>
+            <h3> <i class='fa fa-check-circle'></i> Credentials renewed!</h3>
+             
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="float-right">
+                        <i class="fa fa-copy"></i>
+                    </div>
+                    <div class="clint">
+                        <p><b> Client ID </b>courier_270551_cl</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="float-right">
+                        <i class="fa fa-copy"></i>
+                    </div>
+                    <div class="clint">
+                        <p><b> Client Secret </b>7d9c212b67</p>
+                    </div>
+                </div>
 
+                <div class="col-md-6">
+                    <div class="float-right">
+                        <i class="fa fa-copy"></i>
+                    </div>
+                    <div class="clint">
+                        <p><b> username </b>270551-J77SL@courierapi.com</p>
+                    </div>
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="float-right">
+                        <i class="fa fa-copy"></i>
+                    </div>
+                    <div class="clint">
+                        <p><b> Password </b>uJRDbsLY~2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <h4>Plataformas disponibles para integrar</h4>
     <div class="row">
         <div class="col-md-4 mb-3">
@@ -115,4 +160,25 @@
 
     </div>
 
+   
+
 </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="Credenciales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-body text-center">
+            <i class="fa fa-info-circle" style="font-size: 44px; color: #ffbc00;"></i>
+         <h3>Do you want to discard your current data and have new ones?</h3>
+         <p>If you create new credentials, you will have to re-integrate your online store to OrdersNow Shipping.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Leave</button>
+          <button type="button" class="btn btn-danger">Renew</button>
+        </div>
+      </div>
+    </div>
+  </div>

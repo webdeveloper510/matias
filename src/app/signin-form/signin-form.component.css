@@ -1,0 +1,12 @@
+.text-right {
+    text-align: right;
+}
+
+.accept {
+    background-color: #dc3545;
+    height: 370px;
+}
+.modal {
+    background-color: #3d3c3e73;
+    padding-top: 7%;
+}
