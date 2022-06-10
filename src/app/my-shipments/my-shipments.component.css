@@ -23,3 +23,17 @@ input.form-control.me-2 {
 p {
   margin: 0 0 3px;
 }
+
+.Finalized {
+  background: #d92f2f;
+  color: white;
+  padding: 5px;
+  margin-bottom: 7px;
+  font-size: 13px;
+  border-radius: 15px;
+}
+
+.Finalized p {
+  padding: 0px;
+  margin: 0px;
+}
