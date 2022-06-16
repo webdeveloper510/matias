@@ -1,7 +1,10 @@
 .text-right {
     text-align: right;
 }
-
+.text-left {
+    text-align: left;
+    padding: 11px;
+}
 .accept {
     background-color: #dc3545;
     height: 370px;

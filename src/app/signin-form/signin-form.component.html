@@ -3,8 +3,8 @@
       <div class="modal show d-block" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
-              <div class="text-right">
-                <button type="button" class="btn-close p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div class="text-left">
+                <i class="fa fa-arrow-left" style="font-size: 22px;padding: 11px;"></i>
               </div>
               <div class="modal-body text-center" style="background-color: rgb(249, 246, 244);">
                 <div class="toaccept"  *ngIf="!showRegisterForm">
@@ -13,7 +13,7 @@
                <button class="btn btn-danger form-control rounded-pill" (click)="showRegisterPage()" type="button">To accept</button>
               </div>
   
-              <div class="loginform text-left" *ngIf="showRegisterForm">
+              <div class="loginform " *ngIf="showRegisterForm">
                 <h3>Sign up with your email</h3>
                 <form  [formGroup]="registerForm">
                 <div class="form-floating mb-3">
@@ -28,7 +28,10 @@
                   <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
                   <label for="floatingPassword">Password</label>
                 </div>
-                <a href=""><b>I forgot my password</b></a>
+                <div class="text-left">
+                  <a href=""><b>I forgot my password</b></a>
+                </div>
+                
                 <div class="">
                   <button class="btn btn-danger form-control rounded-pill my-3" (click)="register()" type="button">Continue</button>
                 </div>
