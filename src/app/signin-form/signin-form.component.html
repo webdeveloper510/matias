@@ -7,30 +7,32 @@
                 <button type="button" class="btn-close p-3" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body text-center" style="background-color: rgb(249, 246, 244);">
-                <div class="toaccept">
+                <div class="toaccept"  *ngIf="!showRegisterForm">
                 <img src="./../../assets/login-staff.svg" class="img-fluid">
                 <h3>To continue we ask you to accept our <a href="">terms of use</a> and <a href="">privacy policies.</a></h3>
-               <button class="btn btn-danger form-control rounded-pill" type="button">To accept</button>
+               <button class="btn btn-danger form-control rounded-pill" (click)="showRegisterPage()" type="button">To accept</button>
               </div>
   
-              <div class="loginform text-left d-none">
+              <div class="loginform text-left" *ngIf="showRegisterForm">
                 <h3>Sign up with your email</h3>
+                <form  [formGroup]="registerForm">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" placeholder="Name">
+                  <input type="text" class="form-control"  formControlName="name" id="floatingInput" placeholder="Name">
                   <label for="floatingInput">Name</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <input type="email" class="form-control"  formControlName="email" id="floatingInput" placeholder="name@example.com">
                   <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                  <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
                   <label for="floatingPassword">Password</label>
                 </div>
                 <a href=""><b>I forgot my password</b></a>
                 <div class="">
-                  <button class="btn btn-danger form-control rounded-pill my-3" type="button">Continue</button>
+                  <button class="btn btn-danger form-control rounded-pill my-3" (click)="register()" type="button">Continue</button>
                 </div>
+                </form>
               </div>
               </div>
              
