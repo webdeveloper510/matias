@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonServiceService } from '../commonServices/common-service.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { CommonServiceService } from '../commonServices/common-service.service';
 export class LoginFormComponent implements OnInit {
 showLoginForm:boolean=false;
 loginForm:FormGroup;
-  constructor( private commonService:CommonServiceService) { }
+  constructor( private commonService:CommonServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -26,6 +27,12 @@ console.log(this.showLoginForm)
 console.log(this.loginForm.value)
 this.commonService.login(this.loginForm.value).subscribe((res:any)=>{
   console.log(res)
-})
+  if(res.status=="success"){
+    this.router.navigate(['/createShipment'])
   }
+})
+}
+back(){
+  this.router.navigate([''])
+}
 }
