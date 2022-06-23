@@ -11,7 +11,8 @@ export class MyShipmentsComponent implements OnInit {
 userId:any=''
   ngOnInit(): void {
     const user=localStorage.getItem('user')
-    console.log(user)
+    console.log('user',localStorage.getItem('user'))
+    alert(localStorage.getItem('user'))
   }
 
 
