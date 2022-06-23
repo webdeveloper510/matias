@@ -2018,8 +2018,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class MyShipmentsComponent {
-    constructor() { }
+    constructor() {
+        this.userId = '';
+    }
     ngOnInit() {
+        const user = localStorage.getItem('user');
+        console.log(user);
     }
 }
 MyShipmentsComponent.ɵfac = function MyShipmentsComponent_Factory(t) { return new (t || MyShipmentsComponent)(); };
