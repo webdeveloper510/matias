@@ -25,12 +25,12 @@ export class CreateShipmentComponent implements OnInit {
       secondCtrl: ['', Validators.required],
     });
   }
-  onFirstForm(form: NgForm) {
+  onFirstForm() {
     let data = this.pickUpLocation.value;
 		console.log('-----Team in JSON Format-----');
 		console.log(data);
 }
-onSecondfsForm(form: NgForm){
+onSecondForm(){
   let data = this.DropLocationGroup.value; 
 		console.log('-----Team in JSON Format-----');
 		console.log(data);
