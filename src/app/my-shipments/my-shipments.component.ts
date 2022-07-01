@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyShipmentsComponent implements OnInit {
   constructor() { }
-
+userId:any=''
   ngOnInit(): void {
+    const user=localStorage.getItem('user')
+    console.log('user',localStorage.getItem('user'))
+    alert(localStorage.getItem('user'))
   }
 
 
