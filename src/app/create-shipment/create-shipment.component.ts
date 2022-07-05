@@ -11,7 +11,14 @@ export class CreateShipmentComponent implements OnInit {
   DropLocationGroup: FormGroup;
   isEditable = true;
   constructor(private _formBuilder: FormBuilder) { }
-
+  items:{ 
+  "itemId": string,
+  "description": string,
+  "value": string,
+  "volume": string,
+  "quantity": string,
+  "weight": string
+}[]=[]
   ngOnInit(): void {
     this.pickUpLocation = this._formBuilder.group({
       address: ['', Validators.required],
@@ -44,5 +51,19 @@ onSecondForm(){
   let data = this.DropLocationGroup.value; 
 		//console.log('-----Team in JSON Format-----');
 		console.log(data);
+}
+addSection(){
+  this.items.push({
+    "itemId": "",
+  "description":"",
+  "value": "",
+  "volume": "",
+  "quantity":"",
+  "weight": "  "
+  })
+}
+deleteSection(i:any){
+  console.log(i)
+  this.items.splice(i,1)
 }
 }
