@@ -1,8 +1,52 @@
 <div class="container">
+
+  
   <div>
     <mat-horizontal-stepper #stepper>
       <mat-step [stepControl]="pickUpLocation" [editable]="isEditable">
         <form [formGroup]="pickUpLocation"  (ngSubmit) = "onFirstForm()">
+          <div class="card px-3 my-3">
+            <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected</label>
+            <select class="form-select mb-3" aria-label="Default select example">
+              <option selected>Select Item </option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Value</label>
+                  <input type="number" class="form-control" placeholder="Value">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                  <input type="number" class="form-control"  placeholder="Quantity">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Volume</label>
+                  <input type="number" class="form-control" placeholder="Volume">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Weight</label>
+                  <input type="number" class="form-control" placeholder="Weight">
+                </div>
+              </div>
+             <div class="col-md-12">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+              </div>
+             </div>
+             
+            </div>
+          </div>
           <ng-template matStepLabel>Withdrawal</ng-template>
           <div class="row">
             <div class="col-md-5">
@@ -16,6 +60,17 @@
                           <label for="exampleInputPassword1" class="form-label">Additional Information</label>
                           <input type="text" class="form-control" formControlName="additional_info" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
                         </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Order Number</label>
+                          <input type="text" class="form-control" formControlName="ordernumber" placeholder="Enter Order Number" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                          <mat-form-field>
+                            <input matInput [matDatepicker]="picker"appearance="outline"  formControlName="date" placeholder="Choose a date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                      </div>
                         <div class="row mb-3">
                             <div class="col">
                               <label for="exampleInputPassword1" class="form-label">Who are we asking for *</label>

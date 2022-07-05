@@ -28,10 +28,36 @@
                   <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
                   <label for="floatingPassword">Password</label>
                 </div>
-                <div class="text-left">
-                  <a href=""><b>I forgot my password</b></a>
+           
+
+                   <div class="form-floating mb-3">
+                  <input type="text" class="form-control"  formControlName="surname" id="floatingInput" placeholder="surname">
+                  <label for="floatingInput">Surname</label>
                 </div>
-                
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control"  max="10"  formControlName="telephone" id="floatingInput" placeholder="Telephone">
+                  <label for="floatingInput">Telephone</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control"  formControlName="billingAddress" id="floatingInput" placeholder="Billing Address">
+                  <label for="floatingInput">Billing Address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control"  formControlName="bussinessName" id="floatingInput" placeholder="Business Name">
+                  <label for="floatingInput">Business Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control"  formControlName="tradeName" id="floatingInput" placeholder="Trade Name">
+                  <label for="floatingInput">Trade Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control"  formControlName="ruc" id="floatingInput" placeholder="RUC">
+                  <label for="floatingInput">RUC</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control"  formControlName="turn" id="floatingInput" placeholder="Turn">
+                  <label for="floatingInput">Turn</label>
+                </div>
                 <div class="">
                   <button class="btn btn-danger form-control rounded-pill my-3" (click)="register()" type="button">Continue</button>
                 </div>

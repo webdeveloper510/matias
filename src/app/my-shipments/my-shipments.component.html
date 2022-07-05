@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-       <div class="card">
+       <!-- <div class="card">
          <div class="card-body">
            <div class="">
              <p>Delivered</p>
@@ -59,92 +59,25 @@
              </div>
            </div>
          </div>
-       </div>
+       </div> -->
 
        <div class="card">
-        <div class="card-body">
+        <div class="card-body" *ngFor="let shipment of shipments">
           <div class="">
-            <p>Delivered</p>
+            <p>{{shipment.status}}</p>
             <div class="row">
               <div class="col-6">
-                <p><b>Order No.</b>  10-5666</p>
+                <p><b>Order No.</b>  {{shipment.shipping_id}}</p>
                 <small><i class="fa fa-map-marker"></i> Santa Victoria 280, Santiago</small>
               </div>
               <div class="col-6">
-                <p><b>Delivered</b>  06/06 - 06:12 p.m.</p>
+                <p><b>Delivered</b> {{shipment.delivery_time |date:'d/M/yy, h:mm a '}}.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-body">
-          <div class="">
-            <p>Delivered</p>
-            <div class="row">
-              <div class="col-6">
-                <p><b>Order No.</b>  10-5666</p>
-                <small><i class="fa fa-map-marker"></i> Santa Victoria 280, Santiago</small>
-              </div>
-              <div class="col-6">
-                <p><b>Delivered</b>  06/06 - 06:12 p.m.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <div class="">
-            <p>Delivered</p>
-            <div class="row">
-              <div class="col-6">
-                <p><b>Order No.</b>  10-5666</p>
-                <small><i class="fa fa-map-marker"></i> Santa Victoria 280, Santiago</small>
-              </div>
-              <div class="col-6">
-                <p><b>Delivered</b>  06/06 - 06:12 p.m.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <div class="">
-            <p>Delivered</p>
-            <div class="row">
-              <div class="col-6">
-                <p><b>Order No.</b>  10-5666</p>
-                <small><i class="fa fa-map-marker"></i> Santa Victoria 280, Santiago</small>
-              </div>
-              <div class="col-6">
-                <p><b>Delivered</b>  06/06 - 06:12 p.m.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <div class="">
-            <p>Delivered</p>
-            <div class="row">
-              <div class="col-6">
-                <p><b>Order No.</b>  10-5666</p>
-                <small><i class="fa fa-map-marker"></i> Santa Victoria 280, Santiago</small>
-              </div>
-              <div class="col-6">
-                <p><b>Delivered</b>  06/06 - 06:12 p.m.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
      </div>

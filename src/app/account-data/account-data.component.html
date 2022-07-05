@@ -3,12 +3,12 @@
         <div class="col-md-4 text-center">
             <div class="profile">
                 <img src="./../../assets/profile.png" class="img-fluid">
-                <h3>Matias Tapia</h3>
+                <h3>{{userDetails[0].name}} {{userDetails[0].surname}} </h3>
                 <hr/>
                 <table style="width: 100%;">
                     <tr>
                         <th>Telephone:</th>
-                        <td>56989061606</td>
+                        <td>{{userDetails[0].telephone}}</td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -18,7 +18,7 @@
 
                     <tr>
                         <th>Email:</th>
-                        <td>matiast@gbd.cl</td>
+                        <td>{{userDetails[0].email}}</td>
                     </tr>
                 </table>
             </div>
@@ -36,7 +36,7 @@
                                     Name
                                 </td>
                                 <td>
-                                    Matthias
+                                    {{userDetails[0].name}}
                                 </td>
                             </tr>
                             <tr>
@@ -44,24 +44,20 @@
                                     Surname
                                 </td>
                                 <td>
-                                    Wall
+                                    {{userDetails[0].surname}}
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     Telephone
                                 </td>
-                                <td>
-                                    +56989061606
-                                </td>
+                                <td>{{userDetails[0].telephone}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     Email
                                 </td>
-                                <td>
-                                    Matiast@gbd.cl
-                                </td>
+                                <td>{{userDetails[0].email}}</td>
                             </tr>
                         </table>
                     </div>
@@ -75,41 +71,31 @@
                                 <td>
                                     Billing Address
                                 </td>
-                                <td>
-                                    The Military 5620 Of 305
-                                </td>
+                                <td>{{userDetails[0].billingAddress}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     Business name
                                 </td>
-                                <td>
-                                    GOTOSHOP SPA
-                                </td>
+                                <td>{{userDetails[0].bussinessName}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     Tradename
                                 </td>
-                                <td>
-                                    GBD Courier
-                                </td>
+                                <td>{{userDetails[0].tradeName}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     RUC
                                 </td>
-                                <td>
-                                    773907358
-                                </td>
+                                <td>{{userDetails[0].ruc}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     Turn
                                 </td>
-                                <td>
-                                    OTHER INFORMATION TECHNOLOGY AND INFOR SERVICES ACTIVITIES
-                                </td>
+                                <td>{{userDetails[0].turn}}</td>
                             </tr>
                         </table>
                     </div>

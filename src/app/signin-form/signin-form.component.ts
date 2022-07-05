@@ -17,7 +17,14 @@ export class SigninFormComponent implements OnInit {
       this.registerForm = new FormGroup({
         name: new FormControl(''),
         email: new FormControl(''),
-        password: new FormControl('')
+        password: new FormControl(''),
+        surname: new FormControl(''),
+        billingAddress: new FormControl(''),
+        telephone: new FormControl(''),
+        bussinessName: new FormControl(''),
+        tradeName: new FormControl(''),
+        ruc: new FormControl(''),
+        turn: new FormControl('')
       });
     }
     showRegisterPage(){

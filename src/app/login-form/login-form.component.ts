@@ -26,6 +26,7 @@ console.log(this.showLoginForm)
   loginFormSubmit(){
 console.log(this.loginForm.value)
 this.commonService.login(this.loginForm.value).subscribe((res:any)=>{
+  console.log(res)
   localStorage.setItem('user',JSON.stringify(res.user))
   if(res.status=="success"){
     this.router.navigate(['/createShipment'])

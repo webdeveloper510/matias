@@ -23,6 +23,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SigninFormComponent } from './signin-form/signin-form.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     MatFormFieldModule ,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [
     {
