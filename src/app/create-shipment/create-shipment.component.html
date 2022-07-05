@@ -4,49 +4,54 @@
   <div>
     <mat-horizontal-stepper #stepper>
       <mat-step [stepControl]="pickUpLocation" [editable]="isEditable">
-        <form [formGroup]="pickUpLocation"  (ngSubmit) = "onFirstForm()">
-          <div class="card px-3 my-3">
-            <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected</label>
-            <select class="form-select mb-3" aria-label="Default select example">
-              <option selected>Select Item </option>
-              <option value="1">product1</option>
-              <option value="2">product2</option>
-              <option value="3">product3</option>
-            </select>
-            <div class="row">
-              <div class="col-md-3">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Value</label>
-                  <input type="number" class="form-control" placeholder="Value">
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Quantity</label>
-                  <input type="number" class="form-control"  placeholder="Quantity">
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Volume</label>
-                  <input type="number" class="form-control" placeholder="Volume">
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Weight</label>
-                  <input type="number" class="form-control" placeholder="Weight">
-                </div>
-              </div>
-             <div class="col-md-12">
+        <div class="col-sm-12 ">
+          <button type="button" (click)="addSection('')" class="btn btn-sm btn-primary">Add Item</button>
+      </div>
+        <div class="card px-3 my-3"  *ngFor="let item of items,let i=index">
+          <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected</label>
+          <select class="form-select mb-3" aria-label="Default select example"   [(ngModel)]="item.categoryId">
+            <option selected>Select Item </option>
+            <option value="1">product1</option>
+            <option value="2">product2</option>
+            <option value="3">product3</option>
+          </select>
+          <div class="row">
+            <div class="col-md-3">
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                <label for="exampleFormControlInput1" class="form-label">Value</label>
+                <input type="number" class="form-control" placeholder="Value"   [(ngModel)]="item.value">
               </div>
-             </div>
-             
             </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                <input type="number" class="form-control"  placeholder="Quantity"   [(ngModel)]="item.quantity">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Volume</label>
+                <input type="number" class="form-control" placeholder="Volume"   [(ngModel)]="item.volume">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Weight</label>
+                <input type="number" class="form-control" placeholder="Weight"   [(ngModel)]="item.weight">
+              </div>
+            </div>
+           <div class="col-md-12">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"   [(ngModel)]="item.description"></textarea>
+            </div>
+           </div>
+           
           </div>
+          <button type="submit" (click)="deleteSection(i)" class="btn btn-sm btn-danger">Delete item section</button>
+        </div>
+        <form [formGroup]="pickUpLocation"  (ngSubmit) = "onFirstForm()">
+       
           <ng-template matStepLabel>Withdrawal</ng-template>
           <div class="row">
             <div class="col-md-5">
@@ -54,15 +59,23 @@
                    
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Address *</label>
-                          <input type="text" class="form-control" formControlName="address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <input type="text" class="form-control" formControlName="addressStreet" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Additional Information</label>
-                          <input type="text" class="form-control" formControlName="additional_info" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
+                          <input type="text" class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">city</label>
+                          <input type="text" class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Notification Mail</label>
+                          <input type="email" class="form-control" formControlName="notificationMail" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Order Number</label>
-                          <input type="text" class="form-control" formControlName="ordernumber" placeholder="Enter Order Number" id="exampleInputPassword1">
+                          <input type="text" class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
                           <mat-form-field>
@@ -73,31 +86,31 @@
                       </div>
                         <div class="row mb-3">
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Who are we asking for *</label>
-                              <input type="text" class="form-control" formControlName="who_asking" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
+                              <label for="exampleInputPassword1" class="form-label">Sender Name *</label>
+                              <input type="text" class="form-control" formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
                             </div>
                             <div class="col">
                               <label for="exampleInputPassword1" class="form-label">Telephone *</label>
-                              <input type="text" class="form-control" formControlName="telephone" aria-label="Last name">
+                              <input type="text" class="form-control" formControlName="phone" aria-label="Last name">
                             </div>
                           </div>
                           <div class="">
                             <label for="exampleInputPassword1" class="form-label">Withdrawal Instructions</label>
-                            <input type="text" formControlName="withdrawal" placeholder="What is?  Who to ask for?" class="form-control" id="exampleInputPassword1">
+                            <input type="text" formControlName="instructions" placeholder="What is?  Who to ask for?" class="form-control" id="exampleInputPassword1">
                           </div>
                           <div class="text-right mb-3">
                               <p>0/150</p>
                           </div>
                           <br/>
                           <br/>
-                          <div class="mb-3 form-check">
+                          <!-- <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1" >Save as frequent address </label>
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Nicknames *</label>
-                            <input type="text" class="form-control" formControlName="name" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
-                          </div>
+                          </div> -->
+                          <!-- <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Sender Name *</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Sender Name" id="exampleInputPassword1">
+                          </div> -->
                       
                     
                 </div>
@@ -120,39 +133,43 @@
                    
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Address *</label>
-                          <input type="text" class="form-control" formControlName="drop_address" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <input type="text" class="form-control" formControlName="addressStreet" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Additional Information</label>
-                          <input type="text" class="form-control" formControlName="drop_additional_info" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
+                          <input type="text" class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">city</label>
+                          <input type="text" class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Who are we asking for *</label>
-                              <input type="text" class="form-control" formControlName="drop_who_asking" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
+                              <label for="exampleInputPassword1" class="form-label">Receiver name *</label>
+                              <input type="text" class="form-control" formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
                             </div>
                             <div class="col">
                               <label for="exampleInputPassword1" class="form-label">Telephone *</label>
-                              <input type="text" class="form-control" formControlName="drop_telephone" aria-label="Last name">
+                              <input type="text" class="form-control" formControlName="phone" aria-label="Last name">
                             </div>
                           </div>
                           <div class="">
                             <label for="exampleInputPassword1" class="form-label">Withdrawal Instructions</label>
-                            <input type="text" placeholder="What is?  Who to ask for?" formControlName="drop_withdraw" class="form-control" id="exampleInputPassword1">
+                            <input type="text" placeholder="What is?  Who to ask for?" formControlName="instructions" class="form-control" id="exampleInputPassword1">
                           </div>
                           <div class="text-right mb-3">
                               <p>0/150</p>
                           </div>
                           <br/>
                           <br/>
-                          <div class="mb-3 form-check">
+                          <!-- <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Save as frequent address </label>
-                          </div>
-                          <div class="mb-3">
+                          </div> -->
+                          <!-- <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Nicknames *</label>
                             <input type="text" class="form-control" formControlName="drop_nickname" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
-                          </div>
+                          </div> -->
                       
                     
                 </div>
