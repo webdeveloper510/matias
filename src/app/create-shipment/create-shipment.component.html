@@ -1,14 +1,14 @@
 <div class="container">
 
-  
+
   <div>
     <mat-horizontal-stepper #stepper>
       <mat-step [stepControl]="pickUpLocation" [editable]="isEditable">
         <div class="col-sm-12 ">
-          <button type="button" (click)="addSection('')" class="btn btn-sm btn-primary">Add Item</button>
+          <button type="button" (click)="addSection()" class="btn btn-sm btn-primary mt-3">Add Item <span class="requireds">*</span></button>
       </div>
         <div class="card px-3 my-3"  *ngFor="let item of items,let i=index">
-          <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected</label>
+          <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected <span class="requireds">*</span></label>
           <select class="form-select mb-3" aria-label="Default select example"   [(ngModel)]="item.categoryId">
             <option selected>Select Item </option>
             <option value="1">product1</option>
@@ -18,25 +18,25 @@
           <div class="row">
             <div class="col-md-3">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Value</label>
+                <label for="exampleFormControlInput1" class="form-label">Value <span class="requireds">*</span></label>
                 <input type="number" class="form-control" placeholder="Value"   [(ngModel)]="item.value">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                <label for="exampleFormControlInput1" class="form-label">Quantity <span class="requireds">*</span></label>
                 <input type="number" class="form-control"  placeholder="Quantity"   [(ngModel)]="item.quantity">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Volume</label>
+                <label for="exampleFormControlInput1" class="form-label">Volume <span class="requireds">*</span></label>
                 <input type="number" class="form-control" placeholder="Volume"   [(ngModel)]="item.volume">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Weight</label>
+                <label for="exampleFormControlInput1" class="form-label">Weight <span class="requireds">*</span></label>
                 <input type="number" class="form-control" placeholder="Weight"   [(ngModel)]="item.weight">
               </div>
             </div>
@@ -46,27 +46,27 @@
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"   [(ngModel)]="item.description"></textarea>
             </div>
            </div>
-           
+
           </div>
-          <button type="submit" (click)="deleteSection(i)" class="btn btn-sm btn-danger">Delete item section</button>
+          <button type="submit" (click)="deleteSection(i)" class="btn btn-sm btn-danger mb-3">Delete item section</button>
         </div>
         <form [formGroup]="pickUpLocation"  (ngSubmit) = "onFirstForm()">
-       
+
           <ng-template matStepLabel>Withdrawal</ng-template>
           <div class="row">
             <div class="col-md-5">
                 <div class="address mt-3">
-                   
+
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Address *</label>
-                          <input type="text" class="form-control" formControlName="addressStreet" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <label for="exampleInputEmail1" class="form-label">Address <span class="requred"></span></label>
+                          <input type="text" class="form-control" formControlName="addressStreet" id="addressStreet" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Additional Information</label>
                           <input type="text" class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">city</label>
+                          <label for="exampleInputPassword1" class="form-label">City <span class="requireds">*</span></label>
                           <input type="text" class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
@@ -74,23 +74,25 @@
                           <input type="email" class="form-control" formControlName="notificationMail" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Order Number</label>
+                          <label for="exampleInputPassword1" class="form-label">Order Number <span class="requireds">*</span></label>
                           <input type="text" class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
+                          <label> <span class="requireds">*</span></label>
                           <mat-form-field>
-                            <input matInput [matDatepicker]="picker"appearance="outline"  formControlName="date" placeholder="Choose a date">
+                           
+                            <input matInput [matDatepicker]="picker"appearance="outline"  formControlName="date" placeholder="Delivery Time">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                           </mat-form-field>
                       </div>
                         <div class="row mb-3">
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Sender Name *</label>
+                              <label for="exampleInputPassword1" class="form-label">Sender Name <span class="requireds">*</span></label>
                               <input type="text" class="form-control" formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
                             </div>
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Telephone *</label>
+                              <label for="exampleInputPassword1" class="form-label">Telephone <span class="requireds">*</span></label>
                               <input type="text" class="form-control" formControlName="phone" aria-label="Last name">
                             </div>
                           </div>
@@ -105,14 +107,21 @@
                           <br/>
                           <!-- <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Save as frequent address </label>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Nicknames *</label>
+                            <input type="text" class="form-control" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
+                          </div>
+
+
                             <label class="form-check-label" for="exampleCheck1" >Save as frequent address </label>
                           </div> -->
                           <!-- <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Sender Name *</label>
                             <input type="text" class="form-control" formControlName="name" placeholder="Sender Name" id="exampleInputPassword1">
                           </div> -->
-                      
-                    
+
                 </div>
             </div>
             <div class="col-md-7">
@@ -130,9 +139,9 @@
           <div class="row">
             <div class="col-md-5">
                 <div class="address mt-3">
-                   
+
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Address *</label>
+                          <label for="exampleInputEmail1" class="form-label">Address <span class="requireds">*</span>*</label>
                           <input type="text" class="form-control" formControlName="addressStreet" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
@@ -140,16 +149,16 @@
                           <input type="text" class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">city</label>
+                          <label for="exampleInputPassword1" class="form-label">City <span class="requireds">*</span></label>
                           <input type="text" class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Receiver name *</label>
+                              <label for="exampleInputPassword1" class="form-label">Receiver name <span class="requireds">*</span></label>
                               <input type="text" class="form-control" formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
                             </div>
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Telephone *</label>
+                              <label for="exampleInputPassword1" class="form-label">Telephone <span class="requireds">*</span></label>
                               <input type="text" class="form-control" formControlName="phone" aria-label="Last name">
                             </div>
                           </div>
@@ -168,10 +177,14 @@
                           </div> -->
                           <!-- <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Nicknames *</label>
+
+                            <input type="text" class="form-control" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
+                          </div>
+
+
+
                             <input type="text" class="form-control" formControlName="drop_nickname" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
                           </div> -->
-                      
-                    
                 </div>
             </div>
             <div class="col-md-7">

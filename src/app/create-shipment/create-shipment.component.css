@@ -24,6 +24,11 @@
     margin: 64px 0px;
 }
 
+.requireds {
+    color:red !important;
+    }
+    
+
 .Shipping a {
     color: red;
     text-decoration: none;

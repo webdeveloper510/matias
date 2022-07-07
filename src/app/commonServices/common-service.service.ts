@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class CommonServiceService {
 
   constructor( private http:HttpClient) { }
+  
   login(data:any){
       return this.http.post(environment.baseUrl +'login',data)
   }
@@ -17,4 +18,7 @@ export class CommonServiceService {
   getShipments(id:any,header:any){
   return  this.http.get(`${environment.baseUrl}my-shipments/${id}`,{headers:header})
   }
+  createShipments(data:any,header:any){
+    return  this.http.post(`${environment.baseUrl}shipping`,data,{headers:header})
+    }
 }
