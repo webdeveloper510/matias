@@ -25,6 +25,7 @@ import { SigninFormComponent } from './signin-form/signin-form.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     ReactiveFormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE'
+    })
   ],
   providers: [
     {

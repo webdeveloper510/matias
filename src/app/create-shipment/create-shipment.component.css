@@ -28,7 +28,9 @@
     color:red !important;
     }
     
-
+    agm-map{
+        height: 300px
+    }
 .Shipping a {
     color: red;
     text-decoration: none;
