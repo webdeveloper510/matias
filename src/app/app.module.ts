@@ -26,6 +26,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { AgmCoreModule } from '@agm/core';
     SigninFormComponent
   ],
   imports: [
+    MatAutocompleteModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -56,6 +59,7 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    GooglePlaceModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE'
     })

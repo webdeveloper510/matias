@@ -58,8 +58,12 @@
                 <div class="address mt-3">
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Address <span class="requred"></span></label>
-                          <input type="text" class="form-control" formControlName="addressStreet" id="addressStreet" aria-describedby="emailHelp">
+                          <mat-form-field class="full-width main-font">
+                            <!-- <input ngx-google-places-autocomplete [options]= 'option' (onAddressChange)="AddressChange($event)"/> {{ formattedaddress }}  -->
+                            <input ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)" matInput type="text" placeholder="Address" formControlName="addressStreet" autocomplete>
+                        </mat-form-field>
+                          <!-- <label for="exampleInputEmail1" class="form-label">Address <span class="requred"></span></label>
+                          <input type="text" class="form-control" formControlName="addressStreet" id="addressStreet" aria-describedby="emailHelp"> -->
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Additional Information</label>
@@ -145,8 +149,11 @@
                 <div class="address mt-3">
 
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Address <span class="requireds">*</span>*</label>
-                          <input type="text" class="form-control" formControlName="addressStreet" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <mat-form-field class="full-width main-font">
+                          <input ngx-google-places-autocomplete (onAddressChange)="AddressChange1($event)" matInput type="text" placeholder="Address" formControlName="addressStreet" autocomplete>
+                          <!-- <label for="exampleInputEmail1" class="form-label">Address <span class="requireds">*</span>*</label>
+                          <input type="text" class="form-control" formControlName="addressStreet" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+                          </mat-form-field>
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Additional Information</label>
@@ -192,7 +199,11 @@
                 </div>
             </div>
             <div class="col-md-7">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654191633000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                  (dragEnd)="markerDragEnd1($event)"></agm-marker>
+              </agm-map>
+              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654191633000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
             </div>
         </div>
           <div class="text-center my-4">

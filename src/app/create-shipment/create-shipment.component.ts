@@ -15,17 +15,24 @@ export class CreateShipmentComponent implements OnInit {
   isEditable = true;
   latitude: number;
   zoom:number;
+  formattedaddress=" "; 
 longitude: number;
 location = '';
+location1 = '';
 private geoCoder:any;
 @ViewChild('search',{static: false})
 public searchElementRef: ElementRef;
 option={ 
   componentRestrictions:{ 
-    country:["AU"] 
+    country:["us"] 
   } 
 } 
-  constructor(private _formBuilder: FormBuilder,private commonService:CommonServiceService,  private mapsAPILoader: MapsAPILoader, private ngZone:NgZone) { }
+ 
+  constructor(private _formBuilder: FormBuilder,private commonService:CommonServiceService,  private mapsAPILoader: MapsAPILoader, private ngZone:NgZone) {
+    this.mapsAPILoader.load().then(() => {
+      this.geoCoder = new google.maps.Geocoder;
+    });
+   }
   items: {
     "categoryId": string,
     "description": string,
@@ -44,29 +51,29 @@ userId:any=''
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
 
-      // let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
-      // autocomplete.addListener("place_changed", () => {
-      //   this.ngZone.run(() => {
-      //     //get the place result
-      //     let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-      //     //verify result
-      //     if (place.geometry === undefined || place.geometry === null) {
-      //       return;
-      //     }
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
 
-      //     //set latitude, longitude and zoom
-      //     this.latitude = place.geometry.location.lat();
-      //     this.longitude = place.geometry.location.lng();
-      //     this.zoom = 12;
-      //   });
-      // });
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 15;
+        });
+      });
     });
     // console.log(this.userId[0])
     // this.onSecondForm(this.userId[0].id)
     this.pickUpLocation = this._formBuilder.group({
       type: "PICK_UP",
-      addressStreet: ['', Validators.required],
+      addressStreet: [this.location, Validators.required],
       name: ['', Validators.required],
       latitude: -33.4249838,
       longitude:  -70.6051579,
@@ -90,7 +97,7 @@ userId:any=''
       phone: ['', Validators.required],
       name: ['', Validators.required],
       instructions: ['', Validators.required],
-      addressStreet: ['', Validators.required],
+      addressStreet: [this.location1, Validators.required],
       addressAdditional: ['', Validators.required],
       drop_withdraw: ['', Validators.required],
       drop_nickname: ['', Validators.required],
@@ -103,8 +110,9 @@ userId:any=''
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 8;
+        this.zoom = 15;
         this.getAddress(this.latitude, this.longitude);
+        this.getAddress1(this.latitude, this.longitude);
       });
     }
   }
@@ -115,6 +123,36 @@ userId:any=''
     console.log(data);
     console.log(this.items)
   }
+  AddressChange(address: any) { 
+    console.log(address)
+    //setting address from API to local variable 
+     this.formattedaddress=address.formatted_address 
+     this.location = address.formatted_address 
+     for (var i = 0; i < address.address_components.length; i++) {
+      var addressType = address.address_components[i].types[0];
+      if (addressType == "locality") {
+        this.location = address.address_components[i].long_name + ', ';
+      }
+      if (addressType == "administrative_area_level_1") {
+        this.location += address.address_components[i].short_name;
+      }
+    }
+  } 
+  AddressChange1(address: any) { 
+    console.log(address)
+    //setting address from API to local variable 
+     this.formattedaddress=address.formatted_address 
+     this.location1 = address.formatted_address 
+     for (var i = 0; i < address.address_components.length; i++) {
+      var addressType = address.address_components[i].types[0];
+      if (addressType == "locality") {
+        this.location1 = address.address_components[i].long_name + ', ';
+      }
+      if (addressType == "administrative_area_level_1") {
+        this.location1 += address.address_components[i].short_name;
+      }
+    }
+  } 
   onSecondForm() {
     let data = this.DropLocationGroup.value;
     //console.log('-----Team in JSON Format-----');
@@ -183,6 +221,9 @@ userId:any=''
         if (results[0]) {
           // this.address = results[0].formatted_address;                
               this.location = results[0].formatted_address
+              this.pickUpLocation.patchValue({
+                addressStreet:this.location
+              });
               // this.locationFormControl.setValue(results[0].formatted_address)
           
         } else {
@@ -199,5 +240,34 @@ userId:any=''
     this.latitude = $event.latLng.lat();
     this.longitude =  $event.latLng.lng();
     this.getAddress(this.latitude, this.longitude);
+  }
+  markerDragEnd1($event: google.maps.MouseEvent) {
+    console.log($event);
+    this.latitude = $event.latLng.lat();
+    this.longitude =  $event.latLng.lng();
+    this.getAddress1(this.latitude, this.longitude);
+  }
+  getAddress1(latitude:any, longitude:any) {
+    console.log(latitude,longitude)
+    this.location1=''
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results:any, status:any) => {
+      if (status === 'OK') {
+        console.log(results)
+        if (results[0]) {
+          // this.address = results[0].formatted_address;                
+              this.location1 = results[0].formatted_address
+              this.DropLocationGroup.patchValue({
+                addressStreet:this.location1
+              });
+              // this.locationFormControl.setValue(results[0].formatted_address)
+          
+        } else {
+          window.alert('No results found');
+        }
+      } else {
+        window.alert('Geocoder failed due to: ' + status);
+      }
+    
+    });
   }
 }
