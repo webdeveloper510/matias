@@ -23,9 +23,10 @@ loginForm:FormGroup;
 this.showLoginForm=true
 console.log(this.showLoginForm)
   }
-  loginFormSubmit(){
+  loginFormSubmit(){ 
 console.log(this.loginForm.value)
 this.commonService.login(this.loginForm.value).subscribe((res:any)=>{
+
   console.log(res)
   localStorage.setItem('user',JSON.stringify(res.user))
   if(res.status=="success"){
