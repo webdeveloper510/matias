@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl:'http://test.gotoshop.cl/laravel_api/api/'
+  baseUrl:'https://test.gotoshop.cl/laravel_api/api/'
 };

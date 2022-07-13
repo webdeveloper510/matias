@@ -127,8 +127,8 @@ export class CreateShipmentComponent implements OnInit {
     console.log(this.items)
     if (this.items.length != 0) {
       for (var i = 0; i < this.items.length; i++) {
-        this.weight += +this.items[i].weight;
-        this.volume += +this.items[i].volume
+        this.weight += this.items[i].weight;
+        this.volume += this.items[i].volume
       }
     }
 
