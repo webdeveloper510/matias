@@ -222,7 +222,7 @@
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <div class="float-right">
-                      <h3 class="m-0">$ 3213</h3>
+                      <h3 class="m-0">$ {{getPrice}}</h3>
                       <span class="faster">Faster</span>
                     </div>
                     <p class="m-0"><b>Immediate</b></p>
@@ -248,7 +248,7 @@
                       </div>
                     </div>
                    </div>
-                   <p><b>Shipping Cost $3213</b></p>
+                   <p><b>Shipping Cost ${{getPrice}}</b></p>
                   </div>
                 </div>
               </div>
@@ -256,7 +256,7 @@
                 <h2 class="accordion-header" id="headingTwo">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="float-right">
-                      <h3 class="m-0">$ 3213</h3>
+                      <h3 class="m-0">$ {{getPrice}}</h3>
                       <span class="faster">Personalized</span>
                     </div>
                     <p class="m-0"><b>Personalized</b></p>
@@ -282,7 +282,7 @@
                        </div>
                      </div>
                     </div>
-                    <p><b>Shipping Cost $3213</b></p>
+                    <p><b>Shipping Cost {{getPrice}}</b></p>
                   </div>
                 </div>
               </div>
@@ -319,7 +319,7 @@
         </div>
         <div class="my-4 text-center">
           <button mat-button matStepperPrevious class="btn btn-outline-danger me-4">Return to delivery address</button>
-          <button mat-button class="btn btn-danger" (click)="stepper.reset()">go to summary</button>
+          <button mat-button class="btn btn-danger" (click)="createShipments()">go to summary</button>
         </div>
       </mat-step>
       <!-- <mat-step>

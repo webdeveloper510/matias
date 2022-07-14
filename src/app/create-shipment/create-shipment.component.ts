@@ -23,6 +23,10 @@ export class CreateShipmentComponent implements OnInit {
   longitude: number;
   location = '';
   location1 = '';
+  getPrice:any='';
+  plateform:any='';
+  parcel_id:any='';
+  finalData:any;
   private geoCoder: any;
   @ViewChild('search', { static: false })
   public searchElementRef: ElementRef;
@@ -201,16 +205,39 @@ export class CreateShipmentComponent implements OnInit {
       ]
     }
 
-    console.log(finalData);
-    this.createShipment(finalData)
+    this.finalData=finalData;
+    this.estimateShipping(finalData)
+
   }
-  createShipment(finalData: any,) {
+  estimateShipping(finalData: any,) {
     let header = new HttpHeaders().set(
       "token",
       this.userId[0].remember_token
     )
     this.commonService.createShipments(finalData, header).subscribe((res: any) => {
-      console.log(res)
+      console.log(res);
+      this.getPrice=res.user.price.total
+      this.parcel_id= res.parcel_id
+      this.plateform = res.plateform
+      console.log(this.getPrice)
+    })
+  }
+  createShipments(){
+    let header = new HttpHeaders().set(
+      "token",
+      this.userId[0].remember_token
+    ) 
+    let data={
+      ...this.finalData,
+      "plateform":this.plateform,
+      'parcel_id':this.parcel_id
+    }
+
+    console.log('data',data)
+    return false;
+    this.commonService.createFinalShipment(data, header).subscribe((res: any) => {
+      this.getPrice=res.user.price.total
+      console.log(this.getPrice)
     })
   }
   addSection() {

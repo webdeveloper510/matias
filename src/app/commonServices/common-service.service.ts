@@ -19,6 +19,9 @@ export class CommonServiceService {
   return  this.http.get(`${environment.baseUrl}my-shipments/${id}`,{headers:header})
   }
   createShipments(data:any,header:any){
-    return  this.http.post(`${environment.baseUrl}shipping`,data,{headers:header})
+    return  this.http.post(`${environment.baseUrl}estimate`,data,{headers:header})
+    }
+    createFinalShipment(data:any,header:any){
+      return  this.http.post(`${environment.baseUrl}shipping`,data,{headers:header})
     }
 }
