@@ -25,7 +25,7 @@ export class CreateShipmentComponent implements OnInit {
   location1 = '';
   getPrice:any='';
   plateform:any='';
-  parcel_id:any='';
+  parcel:any='';
   finalData:any;
   private geoCoder: any;
   @ViewChild('search', { static: false })
@@ -217,9 +217,8 @@ export class CreateShipmentComponent implements OnInit {
     this.commonService.createShipments(finalData, header).subscribe((res: any) => {
       console.log(res);
       this.getPrice=res.user.price.total
-      this.parcel_id= res.parcel_id
+      this.parcel= res.parcel
       this.plateform = res.plateform
-      console.log(this.getPrice)
     })
   }
   createShipments(){
@@ -230,14 +229,11 @@ export class CreateShipmentComponent implements OnInit {
     let data={
       ...this.finalData,
       "plateform":this.plateform,
-      'parcel_id':this.parcel_id
+      'parcel':this.parcel
     }
-
-    console.log('data',data)
-    return false;
+   // return false;
     this.commonService.createFinalShipment(data, header).subscribe((res: any) => {
-      this.getPrice=res.user.price.total
-      console.log(this.getPrice)
+      console.log(res)
     })
   }
   addSection() {
