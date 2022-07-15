@@ -233,7 +233,9 @@ export class CreateShipmentComponent implements OnInit {
     }
    // return false;
     this.commonService.createFinalShipment(data, header).subscribe((res: any) => {
-      console.log(res)
+      if(res.Code==200){
+        alert(res.message);
+      }
     })
   }
   addSection() {
