@@ -28,6 +28,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { AgmDirectionModule } from 'agm-direction';   // agm-direction
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     MatNativeDateModule,
     MatDatepickerModule,
     GooglePlaceModule,
+    AgmDirectionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE'
     })

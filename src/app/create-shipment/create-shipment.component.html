@@ -109,24 +109,7 @@
                           </div>
                           <br/>
                           <br/>
-                          <!-- <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Save as frequent address </label>
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Nicknames *</label>
-                            <input type="text" class="form-control" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
-                          </div>
-
-
-                            <label class="form-check-label" for="exampleCheck1" >Save as frequent address </label>
-                          </div> -->
-                          <!-- <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Sender Name *</label>
-                            <input type="text" class="form-control" formControlName="name" placeholder="Sender Name" id="exampleInputPassword1">
-                          </div> -->
-
-                </div>
+                                        </div> 
             </div>
             <div class="col-md-7">
               <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
@@ -314,7 +297,22 @@
             </div>
           </div>
           <div class="col-md-7">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654191633000!5m2!1sen!2sin" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654191633000!5m2!1sen!2sin" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            <div class="container" *ngIf="lines.length!=0">
+              <agm-map [latitude]="lines[0].latitude" [longitude]="lines[0].longitude" [scrollwheel]="false" [zoom]="10">
+                  <ng-container>
+                      <agm-circle [latitude]="lines[0].latitude" [longitude]="lines[0].longitude" 
+                          [fillOpacity]="0.5" [radius]="1000" ></agm-circle>
+                      <agm-circle [latitude]="lines[lines.length - 1].latitude" [longitude]="lines[lines.length - 1].longitude" 
+                          [fillOpacity]="0.5" [radius]="1000" ></agm-circle>
+                          <agm-direction 
+                          [origin]="origin" 
+                          [destination]="destination"
+                        >
+                        </agm-direction>
+                  </ng-container>
+              </agm-map>
+          </div>
           </div>
         </div>
         <div class="my-4 text-center">

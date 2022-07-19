@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { CommonServiceService } from '../commonServices/common-service.service';
 import { HttpHeaders } from '@angular/common/http';
 import { MapsAPILoader } from '@agm/core';
+
+
 @Component({
   selector: 'app-create-shipment',
   templateUrl: './create-shipment.component.html',
@@ -15,8 +17,8 @@ export class CreateShipmentComponent implements OnInit {
   isEditable = true;
   latitude: number;
   zoom: number;
-  lat: any;
-  log: any;
+  lat: number = 51.673858;
+  log: number = 7.815982;
   lat1: any;
   log1: any;
   formattedaddress = " ";
@@ -27,6 +29,9 @@ export class CreateShipmentComponent implements OnInit {
   plateform:any='';
   parcel:any='';
   finalData:any;
+  lines:any=[]
+  origin:any={}
+  destination :any={}
   private geoCoder: any;
   @ViewChild('search', { static: false })
   public searchElementRef: ElementRef;
@@ -56,6 +61,8 @@ export class CreateShipmentComponent implements OnInit {
     this.user = user
     this.userId = JSON.parse(this.user)
     console.log(this.userId[0].id)
+  this.latitude =28.645183210587028
+  this.longitude =77.21927601704103
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -74,7 +81,7 @@ export class CreateShipmentComponent implements OnInit {
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 15;
+          this.zoom = 12;
         });
       });
     });
@@ -116,7 +123,7 @@ export class CreateShipmentComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 15;
+        this.zoom = 12;
         this.getAddress(this.latitude, this.longitude);
         this.getAddress1(this.latitude, this.longitude);
       });
@@ -204,6 +211,25 @@ export class CreateShipmentComponent implements OnInit {
         }
       ]
     }
+this.lines=[{
+  "latitude":this.lat,
+  "longitude":this.log,
+},{
+  "latitude":this.lat1,
+  "longitude":this.log1,
+}]
+this.origin={
+  "lat":this.lat,
+  "lng":this.log,
+},
+this.destination={
+  "lat":this.lat1,
+  "lng":this.log1,
+}
+const piclupPoint = new google.maps.LatLng(this.lat,this.log);
+const dropPoint = new google.maps.LatLng(this.lat1, this.log1);
+const distance = google.maps.geometry.spherical.computeDistanceBetween(piclupPoint,dropPoint)
+console.log(distance)
 
     this.finalData=finalData;
     this.estimateShipping(finalData)
