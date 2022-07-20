@@ -3,7 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { CommonServiceService } from '../commonServices/common-service.service';
 import { HttpHeaders } from '@angular/common/http';
+import { AgmCoreModule } from "@agm/core";
 import { MapsAPILoader } from '@agm/core';
+//import {SphericalUtil, PolyUtil} from "node-geometry-library";
+
 
 
 @Component({
@@ -41,9 +44,10 @@ export class CreateShipmentComponent implements OnInit {
     }
   }
 
-  constructor(private _formBuilder: FormBuilder, private commonService: CommonServiceService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+  constructor(private _formBuilder: FormBuilder, private commonService: CommonServiceService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
     this.mapsAPILoader.load().then(() => {
       this.geoCoder = new google.maps.Geocoder;
+      console.log(this.geoCoder)
     });
   }
   items: {
@@ -228,8 +232,11 @@ this.destination={
 }
 const piclupPoint = new google.maps.LatLng(this.lat,this.log);
 const dropPoint = new google.maps.LatLng(this.lat1, this.log1);
-const distance = google.maps.geometry.spherical.computeDistanceBetween(piclupPoint,dropPoint)
-console.log(distance)
+// let response = google.maps.geometry.spherical.computeDistanceBetween(
+//   piclupPoint, //from object {lat, lng}
+//  piclupPoint // to object {lat, lng}
+// );
+// console.log(response)
 
     this.finalData=finalData;
     this.estimateShipping(finalData)

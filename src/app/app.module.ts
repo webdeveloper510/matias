@@ -63,7 +63,8 @@ import { AgmDirectionModule } from 'agm-direction';   // agm-direction
     GooglePlaceModule,
     AgmDirectionModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE'
+      apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE',
+      libraries: ['geometry']
     })
   ],
   providers: [
