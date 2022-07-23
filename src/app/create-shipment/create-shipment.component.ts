@@ -150,6 +150,8 @@ export class CreateShipmentComponent implements OnInit {
   }
   AddressChange(address: any) {
     console.log(address.geometry.location)
+    this.latitude= address.geometry.location.lat();
+    this.longitude= address.geometry.location.lng()
     this.lat = address.geometry.location.lat()
     this.log = address.geometry.location.lng()
     //setting address from API to local variable 
@@ -164,6 +166,16 @@ export class CreateShipmentComponent implements OnInit {
         this.location += address.address_components[i].short_name;
       }
     }
+  }
+  public  centerChanged(coords: any) {
+    console.log(coords.lat)
+    this.latitude = coords.lat;
+    this.longitude = coords.lng;
+  }
+  public  centerChanged1(coords: any) {
+    console.log(coords.lat)
+    this.lat1 = coords.lat;
+    this.log1 = coords.lng;
   }
   AddressChange1(address: any) {
     this.lat1 = address.geometry.location.lat()
@@ -230,13 +242,13 @@ this.destination={
   "lat":this.lat1,
   "lng":this.log1,
 }
-const piclupPoint = new google.maps.LatLng(this.lat,this.log);
+const pickupPoint = new google.maps.LatLng(this.lat,this.log);
 const dropPoint = new google.maps.LatLng(this.lat1, this.log1);
-// let response = google.maps.geometry.spherical.computeDistanceBetween(
-//   piclupPoint, //from object {lat, lng}
-//  piclupPoint // to object {lat, lng}
-// );
-// console.log(response)
+let response = google.maps.geometry.spherical.computeDistanceBetween(
+  pickupPoint, //from object {lat, lng}
+  dropPoint // to object {lat, lng}
+);
+console.log(response)
 
     this.finalData=finalData;
     this.estimateShipping(finalData)

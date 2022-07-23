@@ -25,7 +25,6 @@
     "@angular/router": "~11.0.5",
     "agm-direction": "^0.8.10",
     "ngx-google-places-autocomplete": "^2.0.5",
-    "node-geometry-library": "^1.2.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -34,7 +33,7 @@
     "@angular-devkit/build-angular": "~0.1100.5",
     "@angular/cli": "~11.0.5",
     "@angular/compiler-cli": "~11.0.5",
-    "@types/googlemaps": "^3.43.3",
+    "@types/googlemaps": "^3.39.13",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",

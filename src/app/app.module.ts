@@ -64,7 +64,7 @@ import { AgmDirectionModule } from 'agm-direction';   // agm-direction
     AgmDirectionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE',
-      libraries: ['geometry']
+    //  libraries: ['geometry']
     })
   ],
   providers: [
