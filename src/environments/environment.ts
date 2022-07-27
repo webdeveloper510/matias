@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
- // baseUrl:'http://test.gotoshop.cl/laravel_api/api/'
-  baseUrl:'http://localhost/laravel_api/api/'
+  baseUrl:'https://test.gotoshop.cl/laravel_api/api/'
+  // baseUrl:'http://localhost/laravel_api/api/'
 };
 
 /*

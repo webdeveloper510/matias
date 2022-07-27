@@ -34,8 +34,10 @@ getShipments(id:any){
     this.userId[0].remember_token
   )
   this.commonService.getShipments(id,header).subscribe((res:any)=>{
-    console.log(res.shipments)
-    this.shipments=res.shipments
+    console.log(res)
+    // var finalData = res.shipments[0].price.replace(/\\/g, "");
+    // console.log(finalData)
+     this.shipments=res
   })
 }
 showmylocation() {
