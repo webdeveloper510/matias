@@ -12,7 +12,9 @@
   .myshipment select.form-select {
     width: 170px;
 }
-
+agm-map{
+  height: 300px
+}
 input.form-control.me-2 {
   width: 220px;
 }

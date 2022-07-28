@@ -27,12 +27,12 @@
    <div class="row">
      <div class="col-md-6">
       <div class="myshiping my-3">
-        <div class="float-right">
+        <!-- <div class="float-right">
           <button class="btn btn-outline-success me-3 btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fa fa-download"></i> Filter
           </button>
-        </div>
-        <div class="d-flex pt-2">
+        </div> -->
+        <!-- <div class="d-flex pt-2">
           <p>Sort by:</p>
           <div class="form-check form-check-inline ms-3">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -42,7 +42,7 @@
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
             <label class="form-check-label" for="inlineRadio2">Creation date</label>
           </div>
-        </div>
+        </div> -->
       </div>
        <!-- <div class="card">
          <div class="card-body">
@@ -61,14 +61,14 @@
          </div>
        </div> -->
 
-       <div class="card">
-        <div class="card-body" *ngFor="let shipment of shipments">
+       <div class="card" *ngFor="let shipment of shipments">
+        <div class="card-body" (click)="waypointDetails(shipment,shipment.id)">
           <div class="">
             <p>{{shipment.status}}</p>
             <div class="row">
               <div class="col-6">
                 <p><b>Order No.</b>  {{shipment.order_number}}</p>
-                <small><i class="fa fa-map-marker"></i> Santa Victoria 280, Santiago</small>
+                <small><i class="fa fa-map-marker"></i> {{shipment.waypoints[1].addressStreet}} {{shipment.waypoints[1].addressAdditional}}</small>
               </div>
               <div class="col-6">
                 <p><b>Delivered</b> {{shipment.delivery_time |date:'d/M/yy, h:mm a '}}.</p>
@@ -82,37 +82,44 @@
 
      </div>
      <div class="col-md-6 mt-3">
-       <p><b>Order number</b> 10-5666</p>
-       <div class="float-right">
-         <div class="Finalized">
-           <p>Finalized</p>
-         </div>
-       </div>
-       <p><b>OrdersNow ID</b> 572231617</p>
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654559715781!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="10">
+        <ng-container>
+            <agm-circle [latitude]="latitude" [longitude]="longitude" 
+                [fillOpacity]="0.5" [radius]="1000" ></agm-circle>
+            <agm-circle [latitude]="shipmentDetails[1].latitude" [longitude]="shipmentDetails[1].longitude" 
+                [fillOpacity]="0.5" [radius]="1000" ></agm-circle>
+                <agm-direction 
+                [origin]="origin" 
+                [destination]="destination"
+              >
+              </agm-direction>
+        </ng-container>
+    </agm-map>
+       <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654559715781!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
     
         <div class="text-center">
           <h3>Delivered  06/06 - 06:12 p.m.</h3>
         </div>
         <hr/>
+        <div *ngIf="shipments.length!=0">
         <div class="row">
           <div class="col-6">
             <p>Withdrawal</p>
-            <h3>Av. Cristobal Colon 6560, Local 8, Las Condes <br/>
-              Feroz Chocolates - Colon Store</h3>
+            <h3>{{shipmentDetails[0].addressStreet}} <br/>
+              {{shipmentDetails[0].addressAdditional}} -  {{shipmentDetails[0].city}}</h3>
               <small>Who do we ask about at the retreat?</small>
-              <p>Feroz Chocolates - Colon Store (Gotoshop) <br/> +56995503730</p>
+              <p>{{shipmentDetails[0].name}}<br/> {{shipmentDetails[0].phone}}</p>
               <small>Instructions</small>
-              <p>Pick up Gotoshop order number: 5666</p>
+              <p>{{shipmentDetails[0].instructions}}</p>
           </div>
           <div class="col-6">
             <p>Delivery</p>
-            <h3>Av. Cristobal Colon 6560, Local 8, Las Condes <br/>
-              Feroz Chocolates - Colon Store</h3>
+            <h3>{{shipmentDetails[1].addressStreet}} <br/>
+              {{shipmentDetails[1].addressAdditional}} -  {{shipmentDetails[1].city}}</h3>
               <small>Who do we ask about at the retreat?</small>
-              <p>Feroz Chocolates - Colon Store (Gotoshop) <br/> +56995503730</p>
+              <p>{{shipmentDetails[1].name}}<br/> {{shipmentDetails[1].phone}}</p>
               <small>Instructions</small>
-              <p>Pick up Gotoshop order number: 5666</p>
+              <p>{{shipmentDetails[1].instructions}}</p>
           </div>
         </div>
         <hr/>
@@ -125,7 +132,7 @@
           </div>
           <div class="col-6">
             <small>km traveled</small>
-            <p>8.85 km</p>
+            <p>{{distanceValue|number : '1.2-2'}}</p>
             <small>merchandise value</small>
             <p>$30,990</p>
           </div>
@@ -138,6 +145,7 @@
             <button class="btn btn-sm btn-outline-danger form-control" type="button">Ask for help</button>
           </div>
          </div>
+      </div>
       </div>
    </div>
 </div>

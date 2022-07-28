@@ -269,11 +269,11 @@
   }
   const pickupPoint = new google.maps.LatLng(this.lat,this.log);
   const dropPoint = new google.maps.LatLng(this.lat1, this.log1);
-  let response = google.maps.geometry.spherical.computeDistanceBetween(
-    pickupPoint, //from object {lat, lng}
-    dropPoint // to object {lat, lng}
-  );
-  console.log(response)
+  // let response = google.maps.geometry.spherical.computeDistanceBetween(
+  //   pickupPoint, //from object {lat, lng}
+  //   dropPoint // to object {lat, lng}
+  // );
+  // console.log(response)
 
       this.finalData=finalData;
       this.estimateShipping(finalData)
