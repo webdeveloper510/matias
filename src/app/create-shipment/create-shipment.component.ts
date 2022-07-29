@@ -61,14 +61,8 @@
     user: any = ''
     userId: any = ''
     ngOnInit(): void {
-      let user = localStorage.getItem('user');
-      this.user = user
-      this.userId = JSON.parse(this.user)
-      console.log(this.userId[0].id)
-    this.latitude =28.645183210587028
-    this.longitude =77.21927601704103
       this.mapsAPILoader.load().then(() => {
-        this.setCurrentLocation();
+       
         this.geoCoder = new google.maps.Geocoder;
 
         let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
@@ -76,7 +70,6 @@
           this.ngZone.run(() => {
             //get the place result
             let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
             //verify result
             if (place.geometry === undefined || place.geometry === null) {
               return;
@@ -88,7 +81,16 @@
             this.zoom = 12;
           });
         });
+        
       });
+      this.setCurrentLocation();
+      let user = localStorage.getItem('user');
+      this.user = user
+      this.userId = JSON.parse(this.user)
+      console.log(this.userId[0].id)
+    this.latitude =28.645183210587028
+    this.longitude =77.21927601704103
+    
       // console.log(this.userId[0])
       // this.onSecondForm(this.userId[0].id)
       this.pickUpLocation = this._formBuilder.group({
