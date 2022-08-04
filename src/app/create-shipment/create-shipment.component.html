@@ -1,6 +1,4 @@
 <div class="container">
-
-
   <div>
     <mat-horizontal-stepper #stepper>
       <mat-step [stepControl]="pickUpLocation" [editable]="isEditable">
@@ -119,7 +117,7 @@
             </div>
         </div>
           <div class="text-center my-4">
-            <button mat-button matStepperNext class="btn btn-danger" type="submit">Choose delivery address</button>
+            <button mat-button matStepperNext class="btn btn-danger" [disabled]="pickUpLocation.invalid" type="submit">Choose delivery address</button>
           </div>
         </form>
       </mat-step>
@@ -190,7 +188,7 @@
         </div>
           <div class="text-center my-4">
             <button mat-button matStepperPrevious class="btn btn-outline-success me-4">Return to withdrawal address</button>
-            <button mat-button matStepperNext class="btn btn-danger"  type="submit">Complete shipping details</button>
+            <button mat-button matStepperNext class="btn btn-danger" [disabled]="DropLocationGroup.invalid"  type="submit">Complete shipping details</button>
           </div>
         </form>
       </mat-step>
