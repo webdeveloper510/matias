@@ -18,6 +18,9 @@ export class CommonServiceService {
   getShipments(id:any,header:any){
   return  this.http.get(`${environment.baseUrl}my-shipments/${id}`,{headers:header})
   }
+  getAuthentication(data:any){
+    return  this.http.post(`${environment.baseUrl}Authentication/`,data)
+    }
   createShipments(data:any,header:any){
     return  this.http.post(`${environment.baseUrl}estimate`,data,{headers:header})
     }
