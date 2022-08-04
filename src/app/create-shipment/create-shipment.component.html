@@ -2,8 +2,8 @@
 
 
   <div>
-    <mat-horizontal-stepper #stepper>
-      <mat-step [stepControl]="pickUpLocation" [editable]="isEditable">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step  [stepControl]="pickUpLocation" [editable]="isEditable">
         <div class="col-sm-12 ">
           <button type="button" (click)="addSection()" class="btn btn-sm btn-primary mt-3">Add Item <span class="requireds">*</span></button>
       </div>
@@ -57,33 +57,50 @@
             <div class="col-md-5">
                 <div class="address mt-3">
                         <div class="mb-3">
-                          <mat-form-field class="full-width main-font">
+                          
+                          <mat-form-field class="full-width main-font"  appearance="outline" >
+                            <mat-label>Address</mat-label>
                             <!-- <input ngx-google-places-autocomplete [options]= 'option' (onAddressChange)="AddressChange($event)"/> {{ formattedaddress }}  -->
-                            <input ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)" matInput type="text" placeholder="Address" formControlName="addressStreet" autocomplete>
+                            <input ngx-google-places-autocomplete  (onAddressChange)="AddressChange($event)" matInput type="text" placeholder="Address" formControlName="addressStreet" autocomplete>
                         </mat-form-field>
                           <!-- <label for="exampleInputEmail1" class="form-label">Address <span class="requred"></span></label>
                           <input type="text" class="form-control" formControlName="addressStreet" id="addressStreet" aria-describedby="emailHelp"> -->
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Additional Information</label>
-                          <input type="text" class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Additional Information</mat-label>
+                            <input matInput class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
+                          </mat-form-field>
+                          <!-- <label for="exampleInputPassword1" class="form-label">Additional Information</label>
+                          <input type="text"> -->
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">City <span class="requireds">*</span></label>
-                          <input type="text" class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>City <span class="requireds">*</span></mat-label>
+                            <input matInput class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
+                          </mat-form-field>
+                          <!-- <label for="exampleInputPassword1" class="form-label">City <span class="requireds">*</span></label> -->
+                          <!-- <input type="text" class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1"> -->
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Notification Mail</label>
-                          <input type="email" class="form-control" formControlName="notificationMail" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Notification Mail </mat-label>
+                            <input matInput class="form-control"  formControlName="notificationMail" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          </mat-form-field>
+                          <!-- <label for="exampleInputEmail1" class="form-label">Notification Mail</label> -->
+                          <!-- <input type="email" class="form-control" formControlName="notificationMail" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Order Number <span class="requireds">*</span></label>
-                          <input type="text" class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1">
+                          <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Order Number <span class="requireds">*</span></mat-label>
+                            <input matInput class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1">
+                          </mat-form-field>
+                          <!-- <label for="exampleInputPassword1" class="form-label">Order Number <span class="requireds">*</span></label> -->
+                          <!-- <input type="text" class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1"> -->
                         </div>
                         <div class="mb-3">
-                          <label> <span class="requireds">*</span></label>
-                          <mat-form-field>
-                           
+                          <mat-form-field appearance="outline">
+                           <mat-label>Delivery date<span class="requireds">*</span></mat-label>
                             <input matInput [matDatepicker]="picker"appearance="outline"  formControlName="date" placeholder="Delivery Time">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
@@ -91,21 +108,33 @@
                       </div>
                         <div class="row mb-3">
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Sender Name <span class="requireds">*</span></label>
-                              <input type="text" class="form-control" formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
+                              <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Order Number <span class="requireds">*</span></mat-label>
+                                <input matInput class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1">
+                              </mat-form-field>
+                              <!-- <label for="exampleInputPassword1" class="form-label">Sender Name <span class="requireds">*</span></label> -->
+                              <!-- <input type="text" class="form-control" formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name"> -->
                             </div>
                             <div class="col">
-                              <label for="exampleInputPassword1" class="form-label">Telephone <span class="requireds">*</span></label>
-                              <input type="text" class="form-control" formControlName="phone" aria-label="Last name">
+                              <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Telephone <span class="requireds">*</span></mat-label>
+                                <input matInput class="form-control"  formControlName="phone" placeholder="Enter Phone Number" id="exampleInputPassword1">
+                              </mat-form-field>
+                              <!-- <label for="exampleInputPassword1" class="form-label">Telephone <span class="requireds">*</span></label>
+                              <input type="text" class="form-control" formControlName="phone" aria-label="Last name"> -->
                             </div>
                           </div>
                           <div class="">
-                            <label for="exampleInputPassword1" class="form-label">Withdrawal Instructions</label>
-                            <input type="text" formControlName="instructions" placeholder="What is?  Who to ask for?" class="form-control" id="exampleInputPassword1">
+                            <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-label>Withdrawal Instructions </mat-label>
+                              <input matInput class="form-control" formControlName="instructions" placeholder="What is?  Who to ask for?" class="form-control" id="exampleInputPassword1">
+                            </mat-form-field>
+                            <!-- <label for="exampleInputPassword1" class="form-label">Withdrawal Instructions</label>
+                            <input type="text" formControlName="instructions" placeholder="What is?  Who to ask for?" class="form-control" id="exampleInputPassword1"> -->
                           </div>
-                          <div class="text-right mb-3">
+                          <!-- <div class="text-right mb-3">
                               <p>0/150</p>
-                          </div>
+                          </div> -->
                           <br/>
                           <br/>
                                         </div> 
@@ -119,11 +148,11 @@
             </div>
         </div>
           <div class="text-center my-4">
-            <button mat-button matStepperNext class="btn btn-danger" type="submit">Choose delivery address</button>
+            <button mat-button  (click)="test()" matStepperNext class="btn btn-danger" type="submit">Choose delivery address</button>
           </div>
         </form>
       </mat-step>
-      <mat-step [stepControl]="DropLocationGroup" [editable]="isEditable">
+      <mat-step [stepControl]="DropLocationGroup"  [editable]="isEditable">
         <form [formGroup]="DropLocationGroup"  (ngSubmit)="onSecondForm()">
           <ng-template matStepLabel>Delivery</ng-template>
           <div class="row">
