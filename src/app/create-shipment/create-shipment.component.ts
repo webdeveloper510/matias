@@ -1,5 +1,5 @@
   import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
-  import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+  import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
   import { NgForm } from '@angular/forms';
   import { CommonServiceService } from '../commonServices/common-service.service';
   import { HttpHeaders } from '@angular/common/http';
@@ -99,7 +99,7 @@
         // name: ['', Validators.required],
 
         city: ['', Validators.required],
-        phone: ['', Validators.required],
+        phone: ['', [Validators.required]],
         "order": 1,
         instructions: ['', Validators.required],
         // withdrawal: ['', Validators.required],
@@ -113,13 +113,13 @@
       this.DropLocationGroup = this._formBuilder.group({
         type: "DROP_OFF",
         city: ['', Validators.required],
-        phone: ['', Validators.required],
+        phone: ['', [Validators.required]],
         name: ['', Validators.required],
         instructions: ['', Validators.required],
         addressStreet: [this.location1, Validators.required],
         addressAdditional: ['', Validators.required],
-        drop_withdraw: ['', Validators.required],
-        drop_nickname: ['', Validators.required],
+        //drop_withdraw: ['', Validators.required],
+       // drop_nickname: ['', Validators.required],
         "order": 2
 
       });
@@ -139,9 +139,7 @@
     volume: any = 0;
     onFirstForm() {
       let data = this.pickUpLocation.value;
-      //console.log('-----Team in JSON Format-----');
-      console.log(this.items);
-      console.log(this.items)
+   
       if (this.items.length != 0) {
         for (var i = 0; i < this.items.length; i++) {
           this.weight += this.items[i].weight;
@@ -177,7 +175,6 @@ test(){
   console.log(this.pickUpLocation)
 }
     AddressChange(address: any) {
-      console.log(address.geometry.location)
       this.latitude= address.geometry.location.lat();
       this.longitude= address.geometry.location.lng()
       this.lat = address.geometry.location.lat()
@@ -196,20 +193,18 @@ test(){
       }
     }
     public  centerChanged(coords: any) {
-      console.log(coords.lat)
       this.latitude = coords.lat;
       this.longitude = coords.lng;
     }
     public  centerChanged1(coords: any) {
-      console.log(coords.lat)
       this.lat1 = coords.lat;
       this.log1 = coords.lng;
     }
     AddressChange1(address: any) {
       this.lat1 = address.geometry.location.lat()
       this.log1 = address.geometry.location.lng()
-      console.log(address.geometry.location.lat())
-      console.log(address.geometry.location.lng())
+      // console.log(address.geometry.location.lat())
+      // console.log(address.geometry.location.lng())
       //setting address from API to local variable 
       this.formattedaddress = address.formatted_address
       this.location1 = address.formatted_address

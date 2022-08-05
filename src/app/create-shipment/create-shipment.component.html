@@ -1,6 +1,4 @@
 <div class="container">
-
-
   <div>
     <mat-horizontal-stepper [linear]="true" #stepper>
       <mat-step  [stepControl]="pickUpLocation" [editable]="isEditable">
@@ -181,7 +179,7 @@
                             </div>
                             <div class="col">
                               <label for="exampleInputPassword1" class="form-label">Telephone <span class="requireds">*</span></label>
-                              <input type="text" class="form-control" formControlName="phone" aria-label="Last name">
+                              <input type="text" formControlName="phone" class="form-control" id="mobileNumber" placeholder="+91" formControlName="phone" aria-label="Last name">
                             </div>
                           </div>
                           <div class="">
@@ -193,20 +191,7 @@
                           </div>
                           <br/>
                           <br/>
-                          <!-- <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Save as frequent address </label>
-                          </div> -->
-                          <!-- <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Nicknames *</label>
-
-                            <input type="text" class="form-control" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
-                          </div>
-
-
-
-                            <input type="text" class="form-control" formControlName="drop_nickname" placeholder="Ex: Branch 61, Accounting firm, etc…" id="exampleInputPassword1">
-                          </div> -->
+                         
                 </div>
             </div>
             <div class="col-md-7">
@@ -219,11 +204,11 @@
         </div>
           <div class="text-center my-4">
             <button mat-button matStepperPrevious class="btn btn-outline-success me-4">Return to withdrawal address</button>
-            <button mat-button matStepperNext class="btn btn-danger"  type="submit">Complete shipping details</button>
+            <button mat-button matStepperNext class="btn btn-danger" [disabled]="DropLocationGroup.invalid"  type="submit">Complete shipping details</button>
           </div>
         </form>
       </mat-step>
-      <mat-step>
+      <mat-step>   
         <ng-template matStepLabel>Done</ng-template>
         <div class="row">
           <div class="col-md-5">
