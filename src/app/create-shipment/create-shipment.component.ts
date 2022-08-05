@@ -96,7 +96,7 @@
       this.pickUpLocation = this._formBuilder.group({
         type: "PICK_UP",
         addressStreet: [this.location, Validators.required],
-        // name: ['', Validators.required],
+         name: ['', Validators.required],
 
         city: ['', Validators.required],
         phone: ['', [Validators.required]],
@@ -173,6 +173,9 @@
   }
 test(){
   console.log(this.pickUpLocation)
+}
+submit(){
+  console.log(this.DropLocationGroup)
 }
     AddressChange(address: any) {
       this.latitude= address.geometry.location.lat();
