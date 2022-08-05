@@ -99,7 +99,7 @@
         name: ['', Validators.required],
 
         city: ['', Validators.required],
-        phone: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+        phone: ['', [Validators.required]],
         "order": 1,
         instructions: ['', Validators.required],
         // withdrawal: ['', Validators.required],
@@ -113,7 +113,7 @@
       this.DropLocationGroup = this._formBuilder.group({
         type: "DROP_OFF",
         city: ['', Validators.required],
-        phone: ['', [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+        phone: ['', [Validators.required]],
         name: ['', Validators.required],
         instructions: ['', Validators.required],
         addressStreet: [this.location1, Validators.required],
