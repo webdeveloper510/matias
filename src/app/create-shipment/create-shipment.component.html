@@ -56,37 +56,37 @@
                 <div class="address mt-3">
                         <div class="mb-3">
                           
-                          <mat-form-field class="full-width main-font"  appearance="outline" >
+                          <mat-form-field class="full-width main-font w-100"  appearance="outline" >
                             <mat-label>Address</mat-label>
                             <input ngx-google-places-autocomplete  (onAddressChange)="AddressChange($event)" matInput type="text" placeholder="Address" formControlName="addressStreet" autocomplete>
                         </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-form-field class="example-full-width w-100" appearance="outline">
                             <mat-label>Additional Information</mat-label>
                             <input matInput class="form-control" formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
                           </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-form-field class="example-full-width w-100" appearance="outline">
                             <mat-label>City <span class="requireds">*</span></mat-label>
                             <input matInput class="form-control" formControlName="city" placeholder="city" id="exampleInputPassword1">
                           </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-form-field class="example-full-width w-100" appearance="outline">
                             <mat-label>Notification Mail </mat-label>
                             <input matInput class="form-control"  formControlName="notificationMail" id="exampleInputEmail1" aria-describedby="emailHelp">
                           </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-form-field class="example-full-width w-100" appearance="outline">
                             <mat-label>Order Number <span class="requireds">*</span></mat-label>
                             <input matInput class="form-control" formControlName="referenceId" placeholder="Enter Order Number" id="exampleInputPassword1">
                           </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field appearance="outline">
+                          <mat-form-field class="w-100" appearance="outline">
                            <mat-label>Delivery date<span class="requireds">*</span></mat-label>
                             <input matInput [matDatepicker]="picker"appearance="outline"  formControlName="date" placeholder="Delivery Time">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -95,20 +95,20 @@
                       </div>
                         <div class="row mb-3">
                             <div class="col">
-                              <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Name <span class="requireds">*</span></mat-label>
                                 <input matInput class="form-control" formControlName="name" placeholder="Enter Sender Name" id="exampleInputPassword1">
                               </mat-form-field>
                             </div>
                             <div class="col">
-                              <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Telephone <span class="requireds">*</span></mat-label>
                                 <input matInput class="form-control"  formControlName="phone" placeholder="Enter Phone Number" id="exampleInputPassword1">
                               </mat-form-field>
                             </div>
                           </div>
                           <div class="">
-                            <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
                               <mat-label>Withdrawal Instructions </mat-label>
                               <input matInput class="form-control" formControlName="instructions" placeholder="What is?  Who to ask for?" class="form-control" id="exampleInputPassword1">
                             </mat-form-field>
@@ -118,7 +118,7 @@
                                         </div> 
             </div>
             <div class="col-md-7" *ngIf="latitude">
-              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" style="height:92% !important">
                 <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
                   (dragEnd)="markerDragEnd($event)" [agmFitBounds]="true"   (centerChange)="centerChanged($event)" ></agm-marker>
               </agm-map>
@@ -138,19 +138,19 @@
                 <div class="address mt-3">
 
                         <div class="mb-3">
-                          <mat-form-field class="full-width main-font"  appearance="outline" >
+                          <mat-form-field class="full-width main-font w-100"  appearance="outline" >
                             <mat-label>Address</mat-label>
                           <input ngx-google-places-autocomplete (onAddressChange)="AddressChange1($event)" matInput type="text" placeholder="Address" formControlName="addressStreet" autocomplete>
                           </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-form-field class="example-full-width w-100" appearance="outline">
                             <mat-label>Additional Information </mat-label>
                             <input matInput class="form-control"   formControlName="addressAdditional" placeholder="Floor, doorbell, house, etc..." id="exampleInputPassword1">
                           </mat-form-field>
                         </div>
                         <div class="mb-3">
-                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-form-field class="example-full-width w-100" appearance="outline">
                             <mat-label>City <span class="requireds">*</span> </mat-label>
                             <input matInput class="form-control"   formControlName="city" placeholder="city" id="exampleInputPassword1">
                           </mat-form-field>
@@ -158,20 +158,20 @@
                         <div class="row mb-3">
                         
                             <div class="col">
-                              <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Receiver name <span class="requireds">*</span> </mat-label>
                                 <input matInput class="form-control"formControlName="name" placeholder="For Maria, for the accounting area, etc..." aria-label="First name">
                               </mat-form-field>
                             </div>
                             <div class="col">
-                              <mat-form-field class="example-full-width" appearance="outline">
+                              <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Telephone <span class="requireds">*</span> </mat-label>
                                 <input matInput  formControlName="phone" class="form-control" id="mobileNumber" placeholder="+91" formControlName="phone" aria-label="Last name">
                               </mat-form-field>
                             </div>
                           </div>
                           <div class="">
-                            <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-form-field class="example-full-width w-100" appearance="outline">
                               <mat-label>Withdrawal Instructions <span class="requireds">*</span> </mat-label>
                               <input matInput placeholder="What is?  Who to ask for?" formControlName="instructions" class="form-control" id="exampleInputPassword1">
                             </mat-form-field>
@@ -182,7 +182,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-              <agm-map [latitude]="lat1" [longitude]="log1" [zoom]="zoom ">
+              <agm-map [latitude]="lat1" [longitude]="log1" [zoom]="zoom " style="height: 92% !important;">
                 <agm-marker [latitude]="lat1" [longitude]="log1" [markerDraggable]="true"
                   (dragEnd)="markerDragEnd1($event)"  (centerChange)="centerChanged1($event)"></agm-marker>
               </agm-map>
@@ -319,12 +319,10 @@
           <button mat-button matStepperPrevious class="btn btn-outline-danger me-4">Return to delivery address</button>
           <button mat-button class="btn btn-danger" (click)="createShipments()">go to summary</button>
         </div>
-      </mat-step>
+      </mat-step>       
       <!-- <mat-step>
         <ng-template matStepLabel>Done</ng-template>
-        <div class="">
-          <p>hello</p>
-        </div>
+      
         <div class="my-4 text-center">
           <button mat-button matStepperPrevious class="btn btn-outline-danger me-4">Return to delivery address</button>
           <button mat-button  class="btn btn-danger" (click)="stepper.reset()">go to summary</button>
