@@ -99,12 +99,12 @@
          name: ['', Validators.required],
 
         city: ['', Validators.required],
-        phone: ['', [Validators.required]],
+        phone: ['', [Validators.required, Validators.maxLength(11)]],
         "order": 1,
         instructions: ['', Validators.required],
         // withdrawal: ['', Validators.required],
         date: ['', Validators.required],
-        notificationMail: ['', Validators.required],
+        notificationMail:['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
         referenceId: ['', Validators.required],
         addressAdditional: ['', Validators.required],
         //referenceId: ['', Validators.required],
@@ -113,7 +113,7 @@
       this.DropLocationGroup = this._formBuilder.group({
         type: "DROP_OFF",
         city: ['', Validators.required],
-        phone: ['', [Validators.required]],
+        phone: ['', [Validators.required, Validators.maxLength(11)]],
         name: ['', Validators.required],
         instructions: ['', Validators.required],
         addressStreet: [this.location1, Validators.required],
