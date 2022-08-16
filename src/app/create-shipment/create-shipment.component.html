@@ -2,6 +2,7 @@
   <div>
     <mat-horizontal-stepper [linear]="true" #stepper>
       <mat-step  [stepControl]="pickUpLocation" [editable]="isEditable">
+        <form [formGroup]="pickUpLocation"  (ngSubmit) = "onFirstForm()">
         <div class="col-sm-12 ">
           <button type="button" (click)="addSection()" class="btn btn-sm btn-primary mt-3">Add Item <span class="requireds">*</span></button>
       </div>
@@ -48,7 +49,7 @@
           </div>
           <button type="submit" (click)="deleteSection(i)" class="btn btn-sm btn-danger mb-3">Delete item section</button>
         </div>
-        <form [formGroup]="pickUpLocation"  (ngSubmit) = "onFirstForm()">
+        
 
           <ng-template matStepLabel>Withdrawal</ng-template>
           <div class="row">
