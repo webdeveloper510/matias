@@ -10,18 +10,20 @@ import { AccountDataComponent } from './account-data/account-data.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SigninFormComponent } from './signin-form/signin-form.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 // import { MyShipmentsComponent } from './my-shipments/my-shipments.component';
 
 const routes: Routes = [
+  {path : '**', component : LoginComponent},
   {path : '', component : LoginComponent},
-  {path : 'createShipment', component : CreateShipmentComponent},
+  {path : 'createShipment', component : CreateShipmentComponent, canActivate: [AuthGuardGuard]},
   {path : 'login', component : LoginFormComponent},
   {path : 'register', component : SigninFormComponent},
-  {path : 'help', component : HelpComponent},
-  {path : 'address', component : MyAddressesComponent},
-  {path:'integration',component:IntegracionesComponent},
-  {path:'my-shipment',component:MyShipmentsComponent},
-  {path:'account-data',component:AccountDataComponent}
+  {path : 'help', component : HelpComponent, canActivate: [AuthGuardGuard]},
+  {path : 'address', component : MyAddressesComponent, canActivate: [AuthGuardGuard]},
+  {path:'integration',component:IntegracionesComponent, canActivate: [AuthGuardGuard]},
+  {path:'my-shipment',component:MyShipmentsComponent, canActivate: [AuthGuardGuard]},
+  {path:'account-data',component:AccountDataComponent, canActivate: [AuthGuardGuard]}
 ];
 
 @NgModule({
