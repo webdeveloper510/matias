@@ -174,10 +174,11 @@
       }
   }
 test(){
-  console.log(this.pickUpLocation)
+  // console.log(this.pickUpLocation)
+  console.log(this.items)
 }
 submit(){
-  console.log(this.DropLocationGroup)
+  console.log(this.items)
 }
     AddressChange(address: any) {
       this.latitude= address.geometry.location.lat();
