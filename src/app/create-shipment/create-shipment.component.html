@@ -7,8 +7,8 @@
           <button type="button" (click)="addSection()" class="btn btn-sm btn-primary mt-3">Add Item <span class="requireds">*</span></button>
       </div>
         <div class="card px-3 my-3"  *ngFor="let item of items,let i=index">
-          <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected <span class="requireds">*</span></label>
-          <select class="form-select mb-3" aria-label="Default select example"   [(ngModel)]="item.categoryId">
+          <label for="exampleFormControlInput1" class="form-label mt-3">Item Selected <span class="requireds">*</span></label>
+          <select class="form-select mb-3"  aria-label="Default select example"  [(ngModel)]="item.categoryId">
             <option selected>Select Item </option>
             <option value="1">product1</option>
             <option value="2">product2</option>
@@ -18,31 +18,31 @@
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Value <span class="requireds">*</span></label>
-                <input type="number" class="form-control" placeholder="Value"   [(ngModel)]="item.value">
+                <input type="number" class="form-control" formControlName="value" placeholder="Value" [(ngModel)]="item.value">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Quantity <span class="requireds">*</span></label>
-                <input type="number" class="form-control"  placeholder="Quantity"   [(ngModel)]="item.quantity">
+                <input type="number" class="form-control" formControlName="quantity"   placeholder="Quantity"   [(ngModel)]="item.quantity">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Volume <span class="requireds">*</span></label>
-                <input type="number" class="form-control" placeholder="Volume"   [(ngModel)]="item.volume">
+                <input type="number" class="form-control" formControlName="volume" placeholder="Volume"   [(ngModel)]="item.volume">
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Weight <span class="requireds">*</span></label>
-                <input type="number" class="form-control" placeholder="Weight"   [(ngModel)]="item.weight">
+                <input type="number" class="form-control" formControlName="weight" placeholder="Weight"   [(ngModel)]="item.weight">
               </div>
             </div>
            <div class="col-md-12">
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"   [(ngModel)]="item.description"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" formControlName="description"  [(ngModel)]="item.description"></textarea>
             </div>
            </div>
 

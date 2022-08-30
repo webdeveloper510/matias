@@ -100,6 +100,10 @@
          name: ['', Validators.required],
 
         city: ['', Validators.required],
+        value: ['', Validators.required],
+        weight: ['', Validators.required],
+        description: ['', Validators.required],
+        
         phone: ['', [Validators.required, Validators.maxLength(11)]],
         "order": 1,
         instructions: ['', Validators.required],
