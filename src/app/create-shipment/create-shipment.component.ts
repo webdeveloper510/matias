@@ -36,6 +36,7 @@
     lines:any=[]
     origin:any={}
     destination :any={}
+    loading:boolean=false;
     private geoCoder: any;
     @ViewChild('search', { static: false })
     public searchElementRef: ElementRef;
@@ -177,10 +178,11 @@
       }
   }
 test(){
-  console.log(this.pickUpLocation)
+  // console.log(this.pickUpLocation)
+  console.log(this.items)
 }
 submit(){
-  console.log(this.DropLocationGroup)
+  console.log(this.items)
 }
     AddressChange(address: any) {
       this.latitude= address.geometry.location.lat();
@@ -283,19 +285,23 @@ submit(){
   // console.log(response)
 
       this.finalData=finalData;
-      this.estimateShipping(finalData)
+      this.eastimateShipping(finalData)
 
     }
-    estimateShipping(finalData: any,) {
+    eastimateShipping(finalData: any,) {
+      this.loading=true;  
       let header = new HttpHeaders().set(
         "token",
         this.userId[0].remember_token
       )
       this.commonService.createShipments(finalData, header).subscribe((res: any) => {
         console.log(res);
-        this.getPrice=res.user.price.total
-        this.parcel= res.parcel
-        this.plateform = res.plateform
+        if(res){
+          this.getPrice=res.user.price.total
+          this.parcel= res.parcel
+          this.plateform = res.plateform
+          this.loading=false
+        }
       })
     }
     createShipments(){

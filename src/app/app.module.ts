@@ -29,6 +29,8 @@ import { AgmCoreModule } from '@agm/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { AgmDirectionModule } from 'agm-direction';   // agm-direction
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { AgmDirectionModule } from 'agm-direction';   // agm-direction
     MatDatepickerModule,
     GooglePlaceModule,
     AgmDirectionModule,
+    MatProgressSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBEHpF_vwT30zqVUryq8-ryr6t0LPgkQbE',
     //  libraries: ['geometry']

@@ -1,3 +1,4 @@
+<app-header></app-header> 
 <div class="container">
   <div>
     <mat-horizontal-stepper [linear]="true" #stepper>
@@ -7,8 +8,13 @@
           <button type="button" (click)="addSection()" class="btn btn-sm btn-primary mt-3">Add Item <span class="requireds">*</span></button>
       </div>
         <div class="card px-3 my-3"  *ngFor="let item of items,let i=index">
+<<<<<<< HEAD
           <label for="exampleFormControlInput1" class="form-label mt-3">Item Selected <span class="requireds">*</span></label>
           <select class="form-select mb-3"  aria-label="Default select example"  [(ngModel)]="item.categoryId">
+=======
+          <label for="exampleFormControlInput1 " class="form-label mt-3">Item Selected <span class="requireds">*</span></label>
+          <select class="form-select mb-3" aria-label="Default select example"   [(ngModel)]="item.categoryId"  [ngModelOptions]="{standalone: true}">
+>>>>>>> 12458a4ee3b62c47a245a71d44aa1cb32af0bcd8
             <option selected>Select Item </option>
             <option value="1">product1</option>
             <option value="2">product2</option>
@@ -18,31 +24,51 @@
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Value <span class="requireds">*</span></label>
+<<<<<<< HEAD
                 <input type="number" class="form-control" formControlName="value" placeholder="Value" [(ngModel)]="item.value">
+=======
+                <input type="number" class="form-control" placeholder="Value"   [(ngModel)]="item.value"  [ngModelOptions]="{standalone: true}" >
+>>>>>>> 12458a4ee3b62c47a245a71d44aa1cb32af0bcd8
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Quantity <span class="requireds">*</span></label>
+<<<<<<< HEAD
                 <input type="number" class="form-control" formControlName="quantity"   placeholder="Quantity"   [(ngModel)]="item.quantity">
+=======
+                <input type="number" class="form-control"  placeholder="Quantity"   [(ngModel)]="item.quantity"  [ngModelOptions]="{standalone: true}">
+>>>>>>> 12458a4ee3b62c47a245a71d44aa1cb32af0bcd8
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Volume <span class="requireds">*</span></label>
+<<<<<<< HEAD
                 <input type="number" class="form-control" formControlName="volume" placeholder="Volume"   [(ngModel)]="item.volume">
+=======
+                <input type="number" class="form-control" placeholder="Volume"   [(ngModel)]="item.volume"  [ngModelOptions]="{standalone: true}">
+>>>>>>> 12458a4ee3b62c47a245a71d44aa1cb32af0bcd8
               </div>
             </div>
             <div class="col-md-3">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Weight <span class="requireds">*</span></label>
+<<<<<<< HEAD
                 <input type="number" class="form-control" formControlName="weight" placeholder="Weight"   [(ngModel)]="item.weight">
+=======
+                <input type="number" class="form-control" placeholder="Weight"   [(ngModel)]="item.weight"  [ngModelOptions]="{standalone: true}">
+>>>>>>> 12458a4ee3b62c47a245a71d44aa1cb32af0bcd8
               </div>
             </div>
            <div class="col-md-12">
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+<<<<<<< HEAD
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" formControlName="description"  [(ngModel)]="item.description"></textarea>
+=======
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"   [(ngModel)]="item.description"  [ngModelOptions]="{standalone: true}"></textarea>
+>>>>>>> 12458a4ee3b62c47a245a71d44aa1cb32af0bcd8
             </div>
            </div>
 
@@ -105,7 +131,7 @@
                             <div class="col">
                               <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Telephone <span class="requireds">*</span></mat-label>
-                                <input matInput class="form-control"  formControlName="phone" placeholder="Enter valid number:+91" id="exampleInputPassword1">
+                                <input matInput class="form-control"  formControlName="phone" maxlength="9"  placeholder="Enter valid number:+1" id="exampleInputPassword1">
                               </mat-form-field>
                             </div>
                           </div>
@@ -168,7 +194,7 @@
                             <div class="col">
                               <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Telephone <span class="requireds">*</span> </mat-label>
-                                <input matInput  formControlName="phone" class="form-control" id="mobileNumber" placeholder="+91" formControlName="phone" aria-label="Last name">
+                                <input matInput  formControlName="phone" class="form-control" id="mobileNumber" maxlength="9" placeholder="+91" formControlName="phone" aria-label="Last name">
                               </mat-form-field>
                             </div>
                           </div>
@@ -199,7 +225,12 @@
       </mat-step>
       <mat-step>   
         <ng-template matStepLabel>Done</ng-template>
+        
+      
         <div class="row">
+          <!-- <div *ngIf="loading" style="text-align: center;">
+            <mat-spinner diameter="60" style="margin: auto;"></mat-spinner>
+          </div> -->
           <div class="col-md-5">
             <p>What kind of shipping do you need?</p>
             <div class="accordion" id="accordionExample">
@@ -208,7 +239,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <div class="float-right">
                       <h3 class="m-0">$  <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span *ngIf="loading" class="visually-hidden">Loading...</span>
                       </div>{{getPrice}}</h3>
                       <span class="faster">Faster</span>
                     </div>
@@ -244,7 +275,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="float-right">
                       <h3 class="m-0">$ {{getPrice}} <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span *ngIf="loading" class="visually-hidden">Loading...</span>
                       </div></h3>
                       <span class="faster">Personalized</span>
                     </div>
@@ -322,8 +353,8 @@
           </div>
         </div>
         <div class="my-4 text-center">
-          <button mat-button matStepperPrevious class="btn btn-outline-danger me-4">Return to delivery address</button>
-          <button mat-button class="btn btn-danger" (click)="createShipments()">go to summary</button>
+          <button mat-button matStepperPrevious class="btn btn-outline-danger me-4"  [disabled]="loading">Return to delivery address</button>
+          <button mat-button class="btn btn-danger" (click)="createShipments()" [disabled]="loading">go to summary</button>
         </div>
       </mat-step>       
       <!-- <mat-step>
