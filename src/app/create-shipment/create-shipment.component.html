@@ -106,7 +106,7 @@
                             <div class="col">
                               <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Telephone <span class="requireds">*</span></mat-label>
-                                <input matInput class="form-control"  formControlName="phone" placeholder="Enter valid number:+91" id="exampleInputPassword1">
+                                <input matInput class="form-control"  formControlName="phone" maxlength="9"  placeholder="Enter valid number:+1" id="exampleInputPassword1">
                               </mat-form-field>
                             </div>
                           </div>
@@ -169,7 +169,7 @@
                             <div class="col">
                               <mat-form-field class="example-full-width w-100" appearance="outline">
                                 <mat-label>Telephone <span class="requireds">*</span> </mat-label>
-                                <input matInput  formControlName="phone" class="form-control" id="mobileNumber" placeholder="+91" formControlName="phone" aria-label="Last name">
+                                <input matInput  formControlName="phone" class="form-control" id="mobileNumber" maxlength="9" placeholder="+91" formControlName="phone" aria-label="Last name">
                               </mat-form-field>
                             </div>
                           </div>
@@ -200,7 +200,12 @@
       </mat-step>
       <mat-step>   
         <ng-template matStepLabel>Done</ng-template>
+        
+      
         <div class="row">
+          <!-- <div *ngIf="loading" style="text-align: center;">
+            <mat-spinner diameter="60" style="margin: auto;"></mat-spinner>
+          </div> -->
           <div class="col-md-5">
             <p>What kind of shipping do you need?</p>
             <div class="accordion" id="accordionExample">
@@ -209,7 +214,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <div class="float-right">
                       <h3 class="m-0">$  <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span *ngIf="loading" class="visually-hidden">Loading...</span>
                       </div>{{getPrice}}</h3>
                       <span class="faster">Faster</span>
                     </div>
@@ -245,7 +250,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="float-right">
                       <h3 class="m-0">$ {{getPrice}} <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                        <span *ngIf="loading" class="visually-hidden">Loading...</span>
                       </div></h3>
                       <span class="faster">Personalized</span>
                     </div>
@@ -323,8 +328,8 @@
           </div>
         </div>
         <div class="my-4 text-center">
-          <button mat-button matStepperPrevious class="btn btn-outline-danger me-4">Return to delivery address</button>
-          <button mat-button class="btn btn-danger" (click)="createShipments()">go to summary</button>
+          <button mat-button matStepperPrevious class="btn btn-outline-danger me-4"  [disabled]="loading">Return to delivery address</button>
+          <button mat-button class="btn btn-danger" (click)="createShipments()" [disabled]="loading">go to summary</button>
         </div>
       </mat-step>       
       <!-- <mat-step>

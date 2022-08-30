@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
+  constructor( private router: Router) {}
   user:any=''
   userDetails:any
   canActivate(
@@ -19,6 +20,7 @@ export class AuthGuardGuard implements CanActivate {
         return true
       }
       else{
+        this.router.navigate(['/'])
         return false
       }
   }

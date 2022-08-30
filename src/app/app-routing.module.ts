@@ -14,7 +14,6 @@ import { AuthGuardGuard } from './auth-guard.guard';
 // import { MyShipmentsComponent } from './my-shipments/my-shipments.component';
 
 const routes: Routes = [
-  {path : '**', component : LoginComponent},
   {path : '', component : LoginComponent},
   {path : 'createShipment', component : CreateShipmentComponent, canActivate: [AuthGuardGuard]},
   {path : 'login', component : LoginFormComponent},
