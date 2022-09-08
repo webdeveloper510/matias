@@ -146,7 +146,7 @@
             </div>
         </div>
           <div class="text-center my-4">
-            <button mat-button  (click)="test()" matStepperNext class="btn btn-danger" type="submit">Choose delivery address</button>
+            <button mat-button  (click)="test(stepper)" matStepperNext class="btn btn-danger" type="submit">Choose delivery address</button>
           </div>
         </form>
       </mat-step>
@@ -346,7 +346,7 @@
         </div>
         <div class="my-4 text-center">
           <button mat-button matStepperPrevious class="btn btn-outline-danger me-4"  [disabled]="loading">Return to delivery address</button>
-          <button mat-button class="btn btn-danger" (click)="createShipments()" [disabled]="loading">go to summary</button>
+          <button mat-button class="btn btn-danger"  (click)="createShipments()" [disabled]="loading">go to summary</button>
         </div>
       </mat-step>       
       <!-- <mat-step>

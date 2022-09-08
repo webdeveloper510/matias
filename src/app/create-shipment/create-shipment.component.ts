@@ -5,6 +5,7 @@
   import { HttpHeaders } from '@angular/common/http';
   import { AgmCoreModule } from "@agm/core";
   import { MapsAPILoader } from '@agm/core';
+import { MatStepper } from '@angular/material/stepper';
   
   //import {SphericalUtil, PolyUtil} from "node-geometry-library";
 
@@ -177,9 +178,10 @@
           console.log('distanceValue',this.distanceValue)
       }
   }
-test(){
+test(stepper:MatStepper){
   // console.log(this.pickUpLocation)
-  console.log(this.items)
+  console.log(stepper)
+  stepper.next()
 }
 submit(){
   console.log(this.items)

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonServiceService } from '../commonServices/common-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -9,9 +11,9 @@ import { CommonServiceService } from '../commonServices/common-service.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-showLoginForm:boolean=false;
-loginForm:FormGroup;
-  constructor( private commonService:CommonServiceService,private router:Router) { }
+  showLoginForm: boolean = false;
+  loginForm: FormGroup;
+  constructor(private commonService: CommonServiceService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -19,22 +21,34 @@ loginForm:FormGroup;
       password: new FormControl('')
     });
   }
-  showLoginPage(){
-this.showLoginForm=true
-console.log(this.showLoginForm)
+  showSuccess(type: any, message: any) {
+    if (type == 'sucess') {
+      this.toastr.success(message, '');
+    }
+    else {
+      this.toastr.error(message, '');
+    }
   }
-  loginFormSubmit(){ 
-console.log(this.loginForm.value)
-this.commonService.login(this.loginForm.value).subscribe((res:any)=>{
+  showLoginPage() {
+    this.showLoginForm = true
+  }
+  loginFormSubmit() {
+    console.log(this.loginForm.value)
+    this.commonService.login(this.loginForm.value).subscribe((res: any) => {
 
-  console.log(res)
-  localStorage.setItem('user',JSON.stringify(res.user))
-  if(res.status=="success"){
-    this.router.navigate(['/createShipment'])
+      console.log(res)
+      localStorage.setItem('user', JSON.stringify(res.user))
+      this.showSuccess('sucess', 'User Login Successfully')
+      if (res.status == "success") {
+        this.router.navigate(['/createShipment'])
+      }
+    }, (error: HttpErrorResponse) => {
+      this.showSuccess('error', error.error.message)
+      console.log(error.error.message)
+    }
+    )
   }
-})
-}
-back(){
-  this.router.navigate([''])
-}
+  back() {
+    this.router.navigate([''])
+  }
 }
