@@ -127,22 +127,7 @@
                   (dragEnd)="markerDragEnd($event)" [agmFitBounds]="true"   (centerChange)="centerChanged($event)" ></agm-marker>
               </agm-map>
               <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654191633000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-              <div class="">
-                <div class="row">
-                  <div class="col-md-3">
-
-                  </div>
-                  <div class="col-md-3">
-
-                  </div>
-                  <div class="col-md-3">
-
-                  </div>
-                  <div class="col-md-3">
-                    
-                  </div>
-                </div>
-              </div>
+              
             </div>
         </div>
           <div class="text-center my-4">
@@ -325,7 +310,7 @@
                   </div>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-7 position-relative">
             <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654191633000!5m2!1sen!2sin" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
             <div class="container" *ngIf="lines.length!=0">
               <agm-map [latitude]="lines[0].latitude" [longitude]="lines[0].longitude" [scrollwheel]="false" [zoom]="10">
@@ -341,6 +326,26 @@
                         </agm-direction>
                   </ng-container>
               </agm-map>
+          </div>
+          <div class="banners">
+            <div class="row">
+              <div class="col-md-3">
+                 <h3> Total Ammount </h3>
+                 <p>$300.00</p>
+              </div>
+              <div class="col-md-3">
+                <h3> Retirement date </h3>
+                <p>$300.00</p>
+              </div>
+              <div class="col-md-3">
+                <h3> Total Ammount </h3>
+                <p>$300.00</p>
+              </div>
+              <div class="col-md-3">
+                <h3> Total Ammount </h3>
+                <p>$300.00</p>
+              </div>
+            </div>
           </div>
           </div>
         </div>
