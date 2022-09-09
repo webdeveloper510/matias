@@ -102,10 +102,6 @@ import { MatStepper } from '@angular/material/stepper';
          name: ['', Validators.required],
 
         city: ['', Validators.required],
-        value: ['', Validators.required],
-        weight: ['', Validators.required],
-        description: ['', Validators.required],
-        
         phone: ['', [Validators.required, Validators.maxLength(11)]],
         "order": 1,
         instructions: ['', Validators.required],
@@ -180,8 +176,7 @@ import { MatStepper } from '@angular/material/stepper';
   }
 test(stepper:MatStepper){
   // console.log(this.pickUpLocation)
-  console.log(stepper)
-  stepper.next()
+  console.log(this.pickUpLocation.valid,this.items.length)
 }
 submit(){
   console.log(this.items)
