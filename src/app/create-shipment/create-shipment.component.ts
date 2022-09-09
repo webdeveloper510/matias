@@ -6,6 +6,8 @@
   import { AgmCoreModule } from "@agm/core";
   import { MapsAPILoader } from '@agm/core';
 import { MatStepper } from '@angular/material/stepper';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
   
   //import {SphericalUtil, PolyUtil} from "node-geometry-library";
 
@@ -47,7 +49,8 @@ import { MatStepper } from '@angular/material/stepper';
       }
     }
 
-    constructor(private _formBuilder: FormBuilder, private commonService: CommonServiceService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {
+    constructor(private _formBuilder: FormBuilder, private commonService: CommonServiceService,private mapsAPILoader: MapsAPILoader,
+      private toastr: ToastrService, private ngZone: NgZone) {
       this.mapsAPILoader.load().then(() => {
         this.geoCoder = new google.maps.Geocoder;
         console.log(this.geoCoder)
@@ -177,6 +180,18 @@ import { MatStepper } from '@angular/material/stepper';
 test(stepper:MatStepper){
   // console.log(this.pickUpLocation)
   console.log(this.pickUpLocation.valid,this.items.length)
+  if(this.items.length!=0 && this.pickUpLocation.valid){
+    stepper.next()
+  }
+  else if(!this.pickUpLocation.valid){
+    this.toastr.error('Please fill all form Fields')
+  }
+  else if(this.items.length==0){
+   this.toastr.error('Please add some items')
+  }
+  else{
+    this.toastr.error('Something went wrong')
+  }
 }
 submit(){
   console.log(this.items)
