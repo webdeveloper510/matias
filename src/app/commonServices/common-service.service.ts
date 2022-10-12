@@ -15,6 +15,9 @@ export class CommonServiceService {
   register(data:any){
     return this.http.post(environment.baseUrl +'register',data)
   }
+  getProof(data:any,header:any){
+    return  this.http.post(`${environment.baseUrl}ProofOfDelivery`,data,{headers:header})
+  }
   getShipments(id:any,header:any){
   return  this.http.get(`${environment.baseUrl}my-shipments/${id}`,{headers:header})
   }

@@ -19,11 +19,13 @@ export class MyShipmentsComponent implements OnInit {
   user: any = ''
   userId: any = ''
   shipmentDetails: any = {};
-
+  shipmentId:any='';
+  shipmentType:any={};
   shipments: any = [];
   latitude: number;
   longitude: number;
   location = '';
+  deliveryData:any={};
   private geoCoder: any;
   option = {
     componentRestrictions: {
@@ -83,6 +85,8 @@ export class MyShipmentsComponent implements OnInit {
   }
   waypointDetails(shipment: any, id: any) {
     console.log(shipment, id)
+    this.shipmentId=id
+    this.shipmentType=shipment.type
     this.shipmentDetails = shipment.waypoints
     console.log(this.shipmentDetails)
     this.latitude = this.shipmentDetails[0].latitude;
@@ -155,5 +159,22 @@ export class MyShipmentsComponent implements OnInit {
     this.latitude = $event.coords.lat;
     this.longitude = $event.coords.lng;
     this.getAddress(this.latitude, this.longitude);
+  }
+  proofDetails(){
+    console.log('here',this.shipmentId)
+    console.log('here',this.shipmentType)
+    let header = new HttpHeaders().set(
+      "token",
+      this.userId[0].remember_token
+    )
+    let data={
+     "id":this.shipmentId,
+      //  "id":'17632210031436180777133',
+      "type":this.shipmentType
+    }
+    this.commonService.getProof(data,header).subscribe((res:any)=>{
+      console.log(res.image)
+      this.deliveryData=res;
+    })
   }
 }
