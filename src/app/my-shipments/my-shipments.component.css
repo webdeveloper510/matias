@@ -20,7 +20,22 @@ agm-map{
 input.form-control.me-2 {
   width: 220px;
 }
+.myshiping.my-3 {
+  height: 207vh;
+  overflow-y: scroll;
+}
 
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.myshiping::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.myshiping {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
 .card.active {
     box-shadow: rgb(0 0 0 / 20%) 0px 7px 10px 3px;
     z-index: 1;
