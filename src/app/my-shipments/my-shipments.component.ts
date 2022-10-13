@@ -32,6 +32,13 @@ export class MyShipmentsComponent implements OnInit {
       country: ["AU"]
     }
   }
+  status: boolean = false;
+  id: number;
+clickEvent(id:any){
+  console.log(id)
+    this.id = id
+    this.status = !this.status;       
+}
   ngOnInit(): void {
     let user = localStorage.getItem('user')
     this.user = user

@@ -12,14 +12,18 @@
   .myshipment select.form-select {
     width: 170px;
 }
+
 agm-map{
-  height: 300px
+  height: 350px
 }
+
 input.form-control.me-2 {
   width: 220px;
 }
-.card {
-  box-shadow: rgb(0 0 0 / 20%) 0px 2px 6px;
+
+.card.active {
+    box-shadow: rgb(0 0 0 / 20%) 0px 7px 10px 3px;
+    z-index: 1;
 }
 
 p {
@@ -61,10 +65,25 @@ p {
   transform: translateX(-50%);
 }
 
-.Finalized1 {
-  background: red;
+.Finalized1 p {
+  background: rgb(1, 201, 140);
   border-radius: 11px;
   text-align: center;
   color: white;
   padding: 2px;
+  font-size: 13px;
+}
+
+.pending1 p{
+  background: rgb(255, 181, 38);
+  border-radius: 11px;
+  text-align: center;
+  color: white;
+  padding: 2px;
+  font-size: 13px;
+}
+
+.detailss small {
+  font-size: 10px;
+    font-weight: 700;
 }

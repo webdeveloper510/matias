@@ -62,8 +62,8 @@
          </div>
        </div> -->
 
-       <div class="card" *ngFor="let shipment of shipments">
-        <div class="card-body" (click)="waypointDetails(shipment,shipment.id)">
+       <div class="card" *ngFor="let shipment of shipments" (click)="clickEvent(shipment.id)"  [ngClass]="status && id==shipment.id ? 'active' : ''">
+        <div class="card-body" (click)="waypointDetails(shipment,shipment.id)" >
           <div class="">
             <p>{{shipment.status}}</p>
             <div class="row">
@@ -83,14 +83,14 @@
 
      </div>
      <div class="col-md-6 mt-3">
-      <div class="row">
-        <div class="col-md-6">
-          <p><b>order number</b> 24-1732</p>
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <p><b>Order Number</b> 24-1732</p>
           <p><b>OrdersNow ID</b> 653373747 <i><span class="tooltip">You will need this number to request help for your shipment.</span></i></p>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-4 text-right">
           <div class="pending1">
-            <p> withdrawal pending </p>
+            <p> Withdrawal Pending </p>
           </div>
           <div class="Finalized1">
             <p>Finalized</p>
@@ -112,16 +112,16 @@
     </agm-map>
        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.279909073!2d-74.25987368715491!3d40.69767006458873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1654559715781!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
     
-        <div class="text-center">
+        <div class="text-center mt-2">
           <h3>Delivered  06/06 - 06:12 p.m.</h3>
         </div>
         <hr/>
-        <div *ngIf="shipments.length!=0">
+        <div *ngIf="shipments.length!=0" class="detailss">
         <div class="row">
           <div class="col-6">
             <p>Withdrawal</p>
-            <h3>{{shipmentDetails[0].addressStreet}} <br/>
-              {{shipmentDetails[0].addressAdditional}} -  {{shipmentDetails[0].city}}</h3>
+            <p> <span> {{shipmentDetails[0].addressStreet}}  </span>
+              {{shipmentDetails[0].addressAdditional}} -  {{shipmentDetails[0].city}}</p>
               <small>Who do we ask about at the retreat?</small>
               <p>{{shipmentDetails[0].name}}<br/> {{shipmentDetails[0].phone}}</p>
               <small>Instructions</small>
@@ -129,8 +129,8 @@
           </div>
           <div class="col-6">
             <p>Delivery</p>
-            <h3>{{shipmentDetails[1].addressStreet}} <br/>
-              {{shipmentDetails[1].addressAdditional}} -  {{shipmentDetails[1].city}}</h3>
+            <p><span> {{shipmentDetails[1].addressStreet}} </span> 
+              {{shipmentDetails[1].addressAdditional}} -  {{shipmentDetails[1].city}}</p>
               <small>Who do we ask about at the retreat?</small>
               <p>{{shipmentDetails[1].name}}<br/> {{shipmentDetails[1].phone}}</p>
               <small>Instructions</small>
