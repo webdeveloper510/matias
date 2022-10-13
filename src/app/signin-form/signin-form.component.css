@@ -3,7 +3,13 @@
 }
 .text-left {
     text-align: left;
-    padding: 11px;
+    position: relative;
+    
+}
+i.fa.fa-arrow-left {
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
 .accept {
     background-color: #dc3545;

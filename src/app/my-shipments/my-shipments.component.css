@@ -39,3 +39,32 @@ p {
   padding: 0px;
   margin: 0px;
 }
+
+.tooltip {
+  font-family: Lato, sans-serif;
+  visibility: hidden;
+  width: max-content;
+  max-width: 200px;
+  padding: 12px;
+  background-color: rgb(45, 134, 244);
+  box-shadow: rgb(39 50 57 / 15%) 0px 2px 6px 0px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.33;
+  position: absolute;
+  z-index: 1;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Finalized1 {
+  background: red;
+  border-radius: 11px;
+  text-align: center;
+  color: white;
+  padding: 2px;
+}

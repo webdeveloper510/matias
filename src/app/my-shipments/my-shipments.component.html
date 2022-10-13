@@ -5,7 +5,7 @@
             <div class="myshipment">
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
+                    <button class="btn btn-danger me-2" type="submit">Search</button>
                     <select class="form-select me-2" aria-label="Default select example">
                       <option selected>All Shipments</option>
                       <option value="1">Retirement Pending</option>
@@ -44,7 +44,7 @@
             <label class="form-check-label" for="inlineRadio2">Creation date</label>
           </div>
         </div> -->
-      </div>
+     
        <!-- <div class="card">
          <div class="card-body">
            <div class="">
@@ -72,17 +72,31 @@
                 <small><i class="fa fa-map-marker"></i> {{shipment.waypoints[1].addressStreet}} {{shipment.waypoints[1].addressAdditional}}</small>
               </div>
               <div class="col-6">
-                <p><b>Delivered</b> {{shipment.delivery_time |date:'d/M/yy, h:mm a '}}.</p>
+                <p><b>Delivery</b> {{shipment.delivery_time |date:'d/M/yy, h:mm a '}}.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-
+    </div>
 
      </div>
      <div class="col-md-6 mt-3">
+      <div class="row">
+        <div class="col-md-6">
+          <p><b>order number</b> 24-1732</p>
+          <p><b>OrdersNow ID</b> 653373747 <i><span class="tooltip">You will need this number to request help for your shipment.</span></i></p>
+        </div>
+        <div class="col-md-6 text-right">
+          <div class="pending1">
+            <p> withdrawal pending </p>
+          </div>
+          <div class="Finalized1">
+            <p>Finalized</p>
+          </div>
+        </div>
+      </div>
       <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="10">
         <ng-container>
             <agm-circle [latitude]="latitude" [longitude]="longitude" 

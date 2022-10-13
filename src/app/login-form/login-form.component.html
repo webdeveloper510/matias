@@ -8,8 +8,8 @@
             </div>
             <div class="modal-body text-center"  style="background-color: rgb(249, 246, 244);">
               <div class="toaccept" *ngIf="!showLoginForm">
-              <img src="./../../assets/login-staff.svg" class="img-fluid">
-              <h3>To continue we ask you to accept our <a href="">terms of use</a> and <a href="">privacy policies.</a></h3>
+              <img src="./../../assets/login-staff.svg" class="img-fluid mb-4">
+              <h3 class="mb-4">To continue we ask you to accept our <a href="">terms of use</a> and <a href="">privacy policies.</a></h3>
              <button class="btn btn-danger form-control rounded-pill" type="button" (click)="showLoginPage()">To accept</button>
             </div>
 
@@ -20,11 +20,11 @@
                 <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
               </div>
-              <div class="form-floating">
+              <div class="form-floating mb-3">
                 <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>
-              <a href=""><b>I forgot my password</b></a>
+              <a class="mt-3" href=""><b>I forgot my password</b></a>
               <div class="">
                 <button class="btn btn-danger form-control rounded-pill my-3" (click)="loginFormSubmit()" type="button">Continue</button>
               </div>
